@@ -1,8 +1,9 @@
-
+import { Link } from "react-router-dom";
 function AboutPage () {
 
 return (
  <div>
+    <Link to={"/"}>Home</Link>
     <h1>About Us</h1>
     <p>We believe every child deserves a stress-free homework experience. AaruEdu
     Homework Hub was built by parents and educators to bridge the gap between

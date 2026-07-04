@@ -1,0 +1,24 @@
+img {
+    width: 150px;
+    border-radius: 50%;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+.buttons button {
+     border-radius: 50px;
+     cursor: pointer;
+     padding: 7px;
+     transition: 0.2s;
+    
+}
+.buttons button:hover {
+  transform: translate3d(0, -3px, 0);  
+  transition: 0.2s ease;
+}
