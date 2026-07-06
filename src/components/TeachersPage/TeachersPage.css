@@ -1,0 +1,30 @@
+
+.assignment-section {
+    margin-top: 20px auto;
+    max-width: 250px;
+}
+.assignment-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ position: sticky;
+ z-index: 10;
+}
+.assignment-section h2 {
+    text-align: left;
+}
+.assignment-list {
+    display: flex;
+    flex-direction: column;
+}
+.arrange {
+    display: flex;
+    justify-content: space-between;
+
+}
+.titleduedate{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+}
