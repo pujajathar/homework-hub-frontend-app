@@ -1,30 +1,103 @@
+.dashboard {
+    background-image: url('./src/assets/images/backgroung.png');
+    max-width: 1300px;
+    margin: auto;
+    padding: 30px;
+}
+.top-nav {
+    margin-bottom: 20px;
+}
+.home-link{
+    text-decoration: none;
+    font-weight: 600;
+}
+.dashboard-header{
+    margin-bottom: 30px;
+}
+.dashboard-headet h1{
+    margin: 0;
+    font-size: 34;
+}
+.dashboard-header p{
+    margin-top: 8px;
+    font-size: 16px;
+}
+.main-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
 
-.assignment-section {
-    margin-top: 20px auto;
-    max-width: 250px;
+
+.card {
+    border-radius: 22px;
+   padding: 22px;
+   width: 250px;
+   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);;
 }
-.assignment-header {
- display: flex;
- justify-content: space-between;
- align-items: center;
- position: sticky;
- z-index: 10;
-}
-.assignment-section h2 {
-    text-align: left;
-}
-.assignment-list {
-    display: flex;
-    flex-direction: column;
-}
-.arrange {
+.card-header{
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
 }
-.titleduedate{
+.assignment-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.assignment-row{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+   padding: 18px;
+}
+.assignment-left{
     display: flex;
     align-items: center;
-    text-align: center;
-    width: 500px;
+}
+.assignment-right{
+    display: flex;
+    align-items: center;
+}
+.check-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+.tag{
+   
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+
+}
+.tag.math{
+  background-color: rgb(222, 156, 109);
+}
+.tag.science{
+      background-color: rgb(122, 174, 70);
+
+}
+.tag.english{
+      background-color: rgb(72, 145, 204);
+
+}
+.tag.art{
+      background-color: rgb(200, 133, 212);
+
+}
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+.btn-add{
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
 }
