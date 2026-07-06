@@ -7,6 +7,8 @@ import AboutPage from './components/AboutPage/AboutPage';
 import ParentsPage from './components/ParentsPage/ParentsPage';
 import TeachersPage from './components/TeachersPage/TeachersPage';
 import StudentsPage from './components/StudentsPage/StudentsPage';
+import mockAssignments from './components/mockAssignments';
+import AssignmentForm from './components/AssignmentForm';
 
 
 function App() {

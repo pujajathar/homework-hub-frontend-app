@@ -27,7 +27,7 @@ function ParentsPage () {
                 message:""
         })
     }
-return (
+ return (
         
         <div>
             <Link to={"/"}>Home</Link>
@@ -38,10 +38,10 @@ return (
                 <form onSubmit={handleSubmit}>  
                 <input type="text" name="subject" value={data.subject} onChange={handleChanege} placeholder="Subject"/>
                     <br /><br />
-                    <textarea name="message" value={data.message} maxLength={200} onChange={handleChanege} 
-                        placeholder="Message...."/>
+                <textarea name="message" value={data.message} maxLength={200} onChange={handleChanege} 
+                    placeholder="Message...."/>
                     <br /><br />
-                    <button type="submit">Submit</button>
+                <button type="submit">Submit</button>
 
                 </form>
                   {submitted && (<p className="success-message">✅ Message has been sent successfully!</p>)}

@@ -29,18 +29,20 @@ return (
   
    <h2>Choose your role to get started</h2>
    <div className="select-card">
+     
     <div className="role-card" onClick={() => navigate("/parents")}>
       <h3>👨‍👩‍👧‍👦 Parents</h3>
       <p>View assignments, track progress and contact teachers easily</p>
    </div>
    <div className="role-card" onClick={() => navigate("/teachers")}>
       <h3>👩‍🏫 Teachers</h3>
-      <p>View assignments, track progress and contact teachers easily</p>
+      <p>Create assignments, track progress and Respond to parents easily</p>
    </div>
    <div className="role-card" onClick={() => navigate("/students")}>
       <h3>🧑‍🎓 Students</h3>
       <p>View assignments, track progress and contact teachers easily</p>
    </div>
+  
    </div>
 </div>
        
