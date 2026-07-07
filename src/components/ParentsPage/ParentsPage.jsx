@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import AssignmentList from "../AssignmentList/AssignmentList";
+import TeachersPage from "../TeachersPage/TeachersPage";
 
-function ParentsPage () {
+function ParentsPage ({ assignments, toggleComplete }) {
   
     const [data, setData] = useState({
         subject:"",
@@ -32,6 +34,12 @@ function ParentsPage () {
         <div>
             <Link to={"/"}>Home</Link>
             <h1>Parent Dashboard</h1>
+            <h2>Aarya's Assignments</h2>
+             {/* Assignment list component displays list of assignment */}
+            <AssignmentList 
+            assignments={assignments}
+            toggleComplete={toggleComplete}
+            />
             
             <div className="form">
                 <label>Contact Teacher:</label><br /><br />

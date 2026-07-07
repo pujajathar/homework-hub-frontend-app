@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import mockAssignments from "../mockAssignments";
 import AssignmentForm from "../AssignmentForm";
 import Footer from "../Footer/Footer";
+import teacher from "../../assets/images/teacher.png";
 import './TeachersPage.css';
+import AssignmentList from "../AssignmentList/AssignmentList";
 
 
 
 
-function TeachersPage () {
+function TeachersPage ({ assignments, setAssignments }) {
     
-   const [assignments, setAssignments] = useState(mockAssignments);
+  
    const [showForm, setShowForm] = useState(false);
  
 
@@ -27,13 +29,7 @@ function TeachersPage () {
 
     setShowForm(false);
 };
-    const toggleComplete = (id) => {
-        setAssignments((prev) => 
-        prev.map((a) => 
-        a.id === id ? {...a, completed : !a.completed} : a
-    )
-);
-    };
+   
     return (  
         
         <div>   
@@ -44,8 +40,14 @@ function TeachersPage () {
         </div>
 
         <div className="dashboard-header">
+            <div className="header-text">
             <h1>Teacher Dashboard</h1>
-            <p>Welcome back, Ms. Leah!</p>  
+            <p>Welcome back, Ms. Leah!</p> 
+            </div> 
+            <div className="profile">
+                <img src={teacher} alt="Teacher" />
+                <span>Ms. Leah</span>
+            </div>
         </div>
          <div className="main-grid">
                 <div className="card">
@@ -67,42 +69,15 @@ function TeachersPage () {
             )
             }
               
-           
-                <div className="assignment-list">
-                      {/*display assignment*/ }
-               {assignments.map((assignment) => (
-                <div key={assignment.id} className="assignment-row">
-                    <div className="assignment-left"> {/*left side */}
-                    <button 
-                    className="check-btn"
-                    onClick={() => toggleComplete(assignment.id)}>
-                        {assignment.completed ? "✅":"⬜"}
-                    </button>
-
-                      
-                        <div>
-                            <h3 className={assignment.completed ? "completed" : ''}>
-                                {assignment.title}
-                            </h3>
-                            <p className="due">
-                                Due {assignment.dueDate}
-                            </p>
-                            </div>
-                         </div>
-                         <div className="assignment-right">  {/*right side */}
-                            <span className={`tag ${assignment.subject.toLowerCase()}`}>
-                                {assignment.subject}
-                            </span>
-                         </div>
-
-                </div>  
-             ))}
-              </div> 
+            <AssignmentList 
+            assignments={assignments}
+            toggleComplete={toggleComplete}
+            />
               </div>
           </div>
           
     </div>
-    <Footer />
+    
    </div>   
   
     
