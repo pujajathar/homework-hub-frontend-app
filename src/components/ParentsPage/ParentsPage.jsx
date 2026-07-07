@@ -4,6 +4,7 @@ import AssignmentList from "../AssignmentList/AssignmentList";
 
 import './ParentsPage.css';
 import { useEffect } from "react";
+import Header from "../Header/Header";
 
 
 
@@ -16,9 +17,10 @@ function ParentsPage ({ assignments, toggleComplete }) {
     const [submitted, setSubmitted] = useState(false);
     const completed = assignments.filter(a => a.completed).length;
     const pending = assignments.filter(a => !a.completed).length;
+    const progressPct = assignments.length > 0 ? Math.round((completed/assignments.length)*100) : 0;
    
 
-    const handleChange = (e) => {
+     const handleChange = (e) => {
          
     const {name, value} = e.target;
         setSubmitted(false);  //message disappears after user starts typing
@@ -47,8 +49,13 @@ function ParentsPage ({ assignments, toggleComplete }) {
         })
     }
  return (
+    <div>
+         <Header />
+   
+    <div className="dashboard">
         
-        <div className="dashboard">
+    
+           
             <Link to={"/"}>Home</Link>
             <h1>Parent Dashboard</h1>
             <section className="stat-row">
@@ -66,8 +73,8 @@ function ParentsPage ({ assignments, toggleComplete }) {
             </div>
 
             </section>
-            
-            <div className="card-container">
+            <div className="two-col">
+       
             <div className="card">
                 <h2>Aarya's Assignments</h2>
              {/* Assignment list component displays list of assignment */}
@@ -77,7 +84,23 @@ function ParentsPage ({ assignments, toggleComplete }) {
             />
             </div>
             
-            
+            <div>  {/*Progress section */}
+                <section className="card">
+                    <h2>Progress</h2>
+                    <div className="progress-label">
+                        <span>Overall Completion</span>
+                        <strong>{progressPct}%</strong>
+                        </div>
+                        <div className="progress-bar-wrap">
+                            <div className="progress-bar-fill" style={{ width: `${progressPct}%`}} />
+                        </div>
+                          
+                            <p className="progress-note">{completed} of {assignments.length} assignments completed this week.</p>
+                       
+                </section>
+            </div>
+           
+            </div>
             <div className="form">
                 <label>Contact Teacher:</label><br /><br />
                 <form onSubmit={handleSubmit}>  
@@ -92,9 +115,11 @@ function ParentsPage ({ assignments, toggleComplete }) {
                 {submitted && (<p className="success-message">✅ Message has been sent successfully!</p>)}
 
                
+            
             </div>
-            </div>
+      
         </div>
+         </div>
     )
 }
 export default ParentsPage;                    
