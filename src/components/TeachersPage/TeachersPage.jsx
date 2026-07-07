@@ -11,7 +11,7 @@ import AssignmentList from "../AssignmentList/AssignmentList";
 
 
 
-function TeachersPage ({ assignments, setAssignments }) {
+function TeachersPage ({ assignments, setAssignments, toggleComplete }) {
     
   
    const [showForm, setShowForm] = useState(false);
@@ -40,6 +40,7 @@ function TeachersPage ({ assignments, setAssignments }) {
         </div>
 
         <div className="dashboard-header">
+           
             <div className="header-text">
             <h1>Teacher Dashboard</h1>
             <p>Welcome back, Ms. Leah!</p> 
@@ -50,7 +51,7 @@ function TeachersPage ({ assignments, setAssignments }) {
             </div>
         </div>
          <div className="main-grid">
-                <div className="card">
+               <div className="card">
                     <div className="card-header">
 
                 <h2>Assignments</h2> 
@@ -73,7 +74,7 @@ function TeachersPage ({ assignments, setAssignments }) {
             assignments={assignments}
             toggleComplete={toggleComplete}
             />
-              </div>
+          </div>   
           </div>
           
     </div>

@@ -31,7 +31,9 @@ function App() {
     <Route path='/aboutus' element={<AboutPage />} />
     <Route path='/parents' element={<ParentsPage 
     assignments={assignments} 
-    toggleComplete={toggleComplete}/>} />
+    setAssignments={setAssignments}
+    toggleComplete={toggleComplete}
+    />} />
     <Route path='/teachers' element={<TeachersPage 
     assignments={assignments}
     setAssignments={setAssignments}

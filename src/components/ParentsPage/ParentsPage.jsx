@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import AssignmentList from "../AssignmentList/AssignmentList";
-import TeachersPage from "../TeachersPage/TeachersPage";
+
+import './ParentsPage.css';
+import { useEffect } from "react";
+
+
 
 function ParentsPage ({ assignments, toggleComplete }) {
   
@@ -10,7 +14,11 @@ function ParentsPage ({ assignments, toggleComplete }) {
         message:""
      });
     const [submitted, setSubmitted] = useState(false);
-    const handleChanege = (e) => {
+    const completed = assignments.filter(a => a.completed).length;
+    const pending = assignments.filter(a => !a.completed).length;
+   
+
+    const handleChange = (e) => {
          
     const {name, value} = e.target;
         setSubmitted(false);  //message disappears after user starts typing
@@ -20,6 +28,15 @@ function ParentsPage ({ assignments, toggleComplete }) {
             [name]:value
         }))
     };
+ useEffect(() => {   //success message disappears after set time
+    if(submitted) {
+        const timer = setTimeout(() => {
+        setSubmitted(false);
+        }, 2000);
+    return () => clearTimeout(timer);
+ }
+}, [submitted]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitted(true); //marks the form submitted
@@ -31,29 +48,51 @@ function ParentsPage ({ assignments, toggleComplete }) {
     }
  return (
         
-        <div>
+        <div className="dashboard">
             <Link to={"/"}>Home</Link>
             <h1>Parent Dashboard</h1>
-            <h2>Aarya's Assignments</h2>
+            <section className="stat-row">
+            <div className="stat-card">
+                <div className="stat-num">{assignments.length}</div>
+                <div className="stat-label">Total</div>
+            </div>
+            <div className="stat-card">
+                <div className="stat-num green">{completed}</div>
+                <div className="stat-label">Completed</div>
+            </div>
+            <div className="stat-card">
+                <div className="stat-num amber">{pending}</div>
+                <div className="stat-label">Pending</div>
+            </div>
+
+            </section>
+            
+            <div className="card-container">
+            <div className="card">
+                <h2>Aarya's Assignments</h2>
              {/* Assignment list component displays list of assignment */}
             <AssignmentList 
             assignments={assignments}
             toggleComplete={toggleComplete}
             />
+            </div>
+            
             
             <div className="form">
                 <label>Contact Teacher:</label><br /><br />
                 <form onSubmit={handleSubmit}>  
-                <input type="text" name="subject" value={data.subject} onChange={handleChanege} placeholder="Subject"/>
+                <input type="text" name="subject" value={data.subject} onChange={handleChange} placeholder="Subject"/>
                     <br /><br />
-                <textarea name="message" value={data.message} maxLength={200} onChange={handleChanege} 
+                <textarea name="message" value={data.message} maxLength={200} onChange={handleChange} 
                     placeholder="Message...."/>
                     <br /><br />
                 <button type="submit">Submit</button>
 
                 </form>
-                  {submitted && (<p className="success-message">✅ Message has been sent successfully!</p>)}
-                  
+                {submitted && (<p className="success-message">✅ Message has been sent successfully!</p>)}
+
+               
+            </div>
             </div>
         </div>
     )
