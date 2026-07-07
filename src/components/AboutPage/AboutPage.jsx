@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import './AboutPage.css';
 function AboutPage () {
 
 return (
- <div>
+ <div className="page">
     <Link to={"/"}>Home</Link>
     <h1>About Us</h1>
     <p>We believe every child deserves a stress-free homework experience. AaruEdu
@@ -16,20 +17,23 @@ return (
     By bringing everything together in one place, we help families stay organized and make homework management 
     simpler and more efficien.
     </p>
-
-    <div>
+    <div className="about-grid">
+    <div className="about-card">
+        <div className="about-icon">🎯</div>
         <h3>Our Mission</h3>
         <p>Our mission is to make homework management simple, organized, and accessible for elementary school communities.<br/>
         We are committed to helping teachers, parents, and students stay connected by providing one central place to manage
         assignments, due dates, classroom updates, and learning resources.</p>
     </div>
-    <div>
+    <div className="about-card">
+        <div className="about-icon">🌱</div>
         <h3>Our vision</h3>
         <p>Our vision is to create a future where every elementary school family has an easy and reliable way to stay engaged in their child's education.<br/>
         We aspire to strengthen the partnership between home and school by reducing missed assignments, improving collaboration, and making homework management
         simple, efficient, and accessible for everyone.</p>
     </div>
-    <div>
+    <div className="about-card">
+        <div className="about-icon">💡</div>
         <h3>Why AaruEdu?</h3>
         <p>AaruEdu was inspired by my own experience as a parent of elementary school children.<br/>
          I wanted to create a simple solution that helps families and teachers stay connected while reducing the stress of 
@@ -40,7 +44,7 @@ return (
         <p>Email:</p>
         <p>Phone:</p>
     </div>
-
+</div>
 </div>
 
 );
