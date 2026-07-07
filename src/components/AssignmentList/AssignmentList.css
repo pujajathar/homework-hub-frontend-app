@@ -1,0 +1,41 @@
+.assignment-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 300px;
+}
+.card {
+   border-radius: 22px;
+   padding: 30px;
+   width: 300px;
+   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+   background-color: rgb(210, 230, 249);
+   margin-left: 10px;
+}
+.assignment-row{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+   padding: 18px;
+   border-radius: 12px;
+   background: white;
+}
+.assignment-left{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.assignment-right{
+    display: flex;
+    align-items: center;
+}
+.check-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}

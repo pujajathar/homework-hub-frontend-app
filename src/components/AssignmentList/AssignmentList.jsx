@@ -1,4 +1,5 @@
 
+import './AssignmentList.css';
 function AssignmentList ({assignments, toggleComplete, showCheckbox=true}) {
 
     return (
