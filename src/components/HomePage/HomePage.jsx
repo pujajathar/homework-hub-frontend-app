@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import './HomePage.css';
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 
 
@@ -44,6 +45,7 @@ return (
    </div>
   
    </div>
+   
 </div>
        
 );

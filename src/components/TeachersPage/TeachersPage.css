@@ -1,8 +1,10 @@
 .dashboard {
     background-image: url('./src/assets/images/backgroung.png');
-    max-width: 1300px;
-    margin: auto;
-    padding: 30px;
+    min-height: 90vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+   
 }
 .top-nav {
     margin-bottom: 20px;
@@ -12,11 +14,18 @@
     font-weight: 600;
 }
 .dashboard-header{
+    display: flex;
+
+    justify-content: space-between;
     margin-bottom: 30px;
+    text-align: center;
+    flex-wrap: wrap;
 }
 .dashboard-headet h1{
+
     margin: 0;
     font-size: 34;
+   
 }
 .dashboard-header p{
     margin-top: 8px;
@@ -30,15 +39,18 @@
 
 
 .card {
-    border-radius: 22px;
-   padding: 22px;
-   width: 250px;
-   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);;
+   border-radius: 22px;
+   padding: 30px;
+   width: 300px;
+   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+   background-color: rgb(210, 230, 249);
+   margin-left: 10px;
 }
 .card-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
 }
 .assignment-list{
   list-style: none;
@@ -74,18 +86,18 @@
 
 }
 .tag.math{
-  background-color: rgb(222, 156, 109);
+  background-color: rgb(223, 176, 143);
 }
 .tag.science{
-      background-color: rgb(122, 174, 70);
+      background-color: rgb(174, 213, 136);
 
 }
 .tag.english{
-      background-color: rgb(72, 145, 204);
+      background-color: rgb(127, 178, 219);
 
 }
 .tag.art{
-      background-color: rgb(200, 133, 212);
+      background-color: rgb(216, 159, 227);
 
 }
 .completed{
@@ -100,4 +112,33 @@
     cursor: pointer;
     font-weight: bold;
     transition: .3s;
+    font-size: 17px;
+    
+}
+.profile{
+    background-color: rgb(198, 177, 244);
+    display: flex;
+    flex-direction: column;
+ align-items: center;
+ border: 3px solid #ffff;
+ gap: 8px;
+ padding-right: 15px;
+}
+.profile img{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile span{
+    font-size: 18px;
+    font-weight: 600;
+
+}
+.header-text {
+    display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+
 }
