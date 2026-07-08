@@ -38,7 +38,10 @@ function App() {
     assignments={assignments}
     setAssignments={setAssignments}
     toggleComplete={toggleComplete} />} /> 
-    <Route path='/students' element={<StudentsPage />} />
+    <Route path='/students' element={<StudentsPage 
+    assignments={assignments}
+    setAssignments={setAssignments}
+    />} />
   </Routes>
    </main>
   <Footer />

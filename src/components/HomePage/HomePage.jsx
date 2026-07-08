@@ -17,6 +17,7 @@ return (
 
    <div className="tagline">
       <h1>AaruEdu - Homework Hub</h1>
+      <h2>For Elementary Schools</h2>
       <p>AaruEdu Homework Hub connects students, parents, and teachers in one place.<br/>
       It is designed by parents and educators to make homework management simple and organized.
       </p>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import AssignmentList from "../AssignmentList/AssignmentList";
-
+import { mockMessages } from "../mockData";
 import './ParentsPage.css';
 import { useEffect } from "react";
 import Header from "../Header/Header";
@@ -18,7 +18,7 @@ function ParentsPage ({ assignments, toggleComplete }) {
     const completed = assignments.filter(a => a.completed).length;
     const pending = assignments.filter(a => !a.completed).length;
     const progressPct = assignments.length > 0 ? Math.round((completed/assignments.length)*100) : 0;
-   
+    const unread = mockMessages.filter(m => !m.read).length;
 
      const handleChange = (e) => {
          
@@ -71,6 +71,10 @@ function ParentsPage ({ assignments, toggleComplete }) {
                 <div className="stat-num amber">{pending}</div>
                 <div className="stat-label">Pending</div>
             </div>
+            <div className="stat-card">
+                <div className="stat-num red">{unread}</div>
+                <div className="stat-label">Unread Messages</div>
+            </div>
 
             </section>
             <div className="two-col">
@@ -99,8 +103,22 @@ function ParentsPage ({ assignments, toggleComplete }) {
                        
                 </section>
             </div>
-           
-           <div className="form">
+            <section className="card">
+                <h2>Messages from Teachers</h2>
+                <ul className="message-list">
+                    {mockMessages.map(m => (
+                        <li key={m.id} className={`message-item ${m.read ? "" : "unread"}`}>
+                            <div className={`message-dot ${m.read} ? "read" : ""}`} />
+                            <div>
+                                <div className="message-from">{m.from}</div>
+                                <div className="messade-subject">{m.subject}</div>
+                            </div>
+                            <span className="message-date">{m.date}</span>
+                        </li>             
+                    ))}
+                </ul>
+            </section>
+           <section className="card">
                 <label>Contact Teacher:</label><br /><br />
                 <form onSubmit={handleSubmit}>  
                 <input type="text" name="subject" value={data.subject} onChange={handleChange} placeholder="Subject"/>
@@ -109,18 +127,12 @@ function ParentsPage ({ assignments, toggleComplete }) {
                     placeholder="Message...."/>
                     <br /><br />
                 <button type="submit">Submit</button>
-
                 </form>
                 {submitted && (<p className="success-message">✅ Message has been sent successfully!</p>)}
-
-               
-            
-            </div>
-            </div>
-            
-      
+            </section>
+            </div>    
         </div>
-         </div>
+    </div>
     )
 }
 export default ParentsPage;                    
