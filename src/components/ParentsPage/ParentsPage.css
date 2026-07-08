@@ -1,11 +1,14 @@
 .dashboard {
     background-image: url('./src/assets/images/backgroung.png');
-    min-height: 90vh;
+    min-height: 100vh;
     width: 100%;
     background-position: center;
     background-size: cover;
-   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .top-nav {
     margin-bottom: 20px;
 }
@@ -15,16 +18,17 @@
 }
 .dashboard-header{
     display: flex;
-
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;
     flex-wrap: wrap;
 }
-.dashboard-headet h1{
+.dashboard-header h1{
 
     margin: 0;
-    font-size: 34;
+    font-size: 34px;
    
 }
 .dashboard-header p{
@@ -41,10 +45,11 @@
 .card {
    border-radius: 22px;
    padding: 30px;
-   width: 300px;
+   width: 100%;
+   max-width: 420px;
    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-   background-color: rgb(210, 230, 249);
-   margin-left: 10px;
+   background: #fff;
+   
 }
 
 
@@ -113,23 +118,18 @@
 }
 
 .form {
-    width: 80%;
-    max-width:fit-content;
+    width: 100%;
+    max-width: 420px;
+   margin: 2rem auto;
+   text-align: center;
     background: white;
     padding: 25px;
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.card-container{
-    width: 90%;
-    max-width: 1100px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    justify-content: center;
-    align-items: start;
-}
+
+   
 .stat-card{
     background: #fff;
     border-radius: 15px;
@@ -138,10 +138,13 @@
     text-align: center;
 }
 .stat-row{
-    display: grid;
+    display: flex;
+    justify-content: center;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+
 }
 .stat-num {
     font-size: 2rem;
@@ -157,4 +160,43 @@
 .stat-label{
     margin-top: 0.25rem;
     
+}
+.progress-label{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    
+}
+.progress-bar-wrap {
+    overflow: hidden;
+    height: 8px;
+    border-radius: 8px;
+   background: #e5e7eb;
+  
+}
+.progress-bar-fill{
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+.two-col{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+width: 100%;
+    gap: 1.5rem;
+    
+    gap: 100px;
+    
+   margin: 40px 0;
+}
+.dashboard-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(1200px, 95%);
+ 
+    margin: auto;
+   
 }

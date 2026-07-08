@@ -6,6 +6,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: rgb(224, 169, 240);
 }
 .buttons {
     display: flex;

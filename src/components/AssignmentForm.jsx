@@ -1,14 +1,29 @@
-import { useState } from "react";
-import mockAssignments from "./mockAssignments";
+import { useState, useEffect } from "react";
+import { mockAssignments } from "./mockData";
 
-function AssignmentForm ({onSubmit}) {
+
+function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel}) { //assignment propery passing from teachers page
 
     const [assignment, setAssignment] = useState({
-             subject:"",
-            title:"",
-            dueDate:"",
-            status:"" 
+            subject: editAssignment?.subject || "",
+            title: editAssignment?.title || "",
+            dueDate: editAssignment?.dueDate || "",
+            status: editAssignment?.status || ""
     });
+    const isEditing = Boolean(editAssignment);
+    useEffect (() => {      //fills the form when click edit
+        if (editAssignment) {
+            setAssignment(editAssignment);
+        } else {
+            setAssignment({
+                subject:"",
+                title: "",
+                dueDate: "",
+                status:""
+            });
+        }
+    }, [editAssignment]);
+    
     const handleChange = (e) => {
             const {name, value} = e.target;
             setAssignment({
@@ -18,22 +33,36 @@ function AssignmentForm ({onSubmit}) {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newAssignment = {
-            ...assignment,
-            id:Date.now()
-        };
-        onSubmit(newAssignment);
+       
+         const updateAssignment = {
+        ...assignment,
+        id: editAssignment? editAssignment.id: Date.now()
+    };
+    onSubmit(updateAssignment);
+  
         setAssignment({
             subject:"",
             title:"",
             dueDate:"",
             status:""
         });
-    }
+    };
+   
     return (
 
         <div>
+            <h2>{editAssignment ? "Update Assignment" : "Create Assignment"}</h2> {/*changes title of form when editing or creating */}
             <form onSubmit={handleSubmit}>
+                          {/* When editing assignments displays only selected assignment name */}
+                {isEditing ? (       
+                    <input 
+                    type="text"
+                    name="subject"
+                    value={assignment.subject}
+                    readOnly
+                    />
+                            
+                ) : (       //when creating displays options of subjects
                 <label>Subject:
                 <select 
                       name="subject"
@@ -46,7 +75,10 @@ function AssignmentForm ({onSubmit}) {
                    <option value="English">English</option>
                    <option value="Social Studies">Social Studies</option>
                 </select>
-                </label><br />
+                
+                </label>
+                )}
+                <br />
                 <label>Title:
                     <input type="text"
                     name="title"
@@ -62,9 +94,16 @@ function AssignmentForm ({onSubmit}) {
                     /><br />
                 </label>
                
-                <button type="submit">Create Assignment</button>
+                <button type="submit">      {/* button text changes depending on editing or creating */}
+                    {editAssignment? "Update Assignment" : "Create Assignment"}
+                </button>
+                <button type="button" onClick={onCancel}>
+                    Cancel
+                </button>
+                    
             </form>
-         
+
+
         </div>
     );
 };
