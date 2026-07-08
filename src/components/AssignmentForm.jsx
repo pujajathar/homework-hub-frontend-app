@@ -78,20 +78,23 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel}) { //a
                 
                 </label>
                 )}
-                <br />
+                <br /><br />
                 <label>Title:
                     <input type="text"
                     name="title"
                     value={assignment.title} 
                     onChange={handleChange}
+                    placeholder="Title of Assignment..."
+                    required
                     />
-                </label><br />
+                </label><br /><br />
                 <label>dueDate:
                     <input type="date"
                     name="dueDate"
                     value={assignment.dueDate}
                     onChange={handleChange}
-                    /><br />
+                    required
+                    /><br /><br />
                 </label>
                
                 <button type="submit">      {/* button text changes depending on editing or creating */}
