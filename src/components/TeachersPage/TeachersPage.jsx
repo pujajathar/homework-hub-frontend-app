@@ -1,46 +1,65 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import mockAssignments from "../mockAssignments";
+import { mockAssignments, mockStudents } from "../mockData";
 import AssignmentForm from "../AssignmentForm";
 import Footer from "../Footer/Footer";
 import teacher from "../../assets/images/teacher.png";
 import './TeachersPage.css';
 import AssignmentList from "../AssignmentList/AssignmentList";
+import Header from "../Header/Header";
 
-
-
-
-function TeachersPage ({ assignments, setAssignments, toggleComplete }) {
+function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
     
-  
-   const [showForm, setShowForm] = useState(false);
- 
+    const parents = [
+    {id: 1, name: "Sarah Johnson", child: "Emma Johnson",lastMsgDate: "2026-07-06"},
+    {id: 2, name: "Michael Smith", child: "Liam Smith", lastMsgDate: "2026-07-05"},
+    { id: 3, name: "Jessica Brown", child: "Olivia Brown", lastMsgDate: "2026-07-07"}
+    ];
+    const [showForm, setShowForm] = useState(false);
+    const [editAssignments, setEditAssignments] = useState(null);
+    const [replyId, setReplyId] = useState(null); //to reply to parents
+
+    const handleDelete = (id) => {
+        if(window.confirm("Are you sure?")) {   //asks for confirmation before deleting
+        setAssignments((prev) => prev.filter((assignment) => assignment.id !== id));
+    };
+};
+
+    const handleEdit = (id) => {
+        const assignment = assignments.find((item) => item.id === id);
+        setEditAssignments(assignment);
+        setShowForm(true);
+    };
 
    const handleAddAssignment = (newAssignment) => {
-     setAssignments((prev) => [
-        ...prev,
-        {
-         ...newAssignment,
-            id:Date.now(),
-            completed:false
-        },    
-     ]);
+    if(editAssignments) {  //updates existing assignment
+     setAssignments(prev => 
+        prev.map(item => 
+            item.id === newAssignment.id ? newAssignment : item
+        )
+    );
 
+    } else {
+        setAssignments(prev => [   //adds new assignment
+            ...prev,
+            {
+                ...newAssignment,
+                id: Date.now(),
+                completed: false
+            }
+        ]);
+    }
+    setEditAssignments(null);
     setShowForm(false);
-};
-   
-    return (  
+}   
+    return (      
+    <div>   
+        <Header />
+       <div className="dashboard">
         
-        <div>   
-           
-    <div className="dashboard">
-        <div className="top-nav">
-        <Link to="/" className="home-link">🏠Home</Link>
-        </div>
 
-        <div className="dashboard-header">
-           
+        <header className="dashboard-header">          
             <div className="header-text">
             <h1>Teacher Dashboard</h1>
             <p>Welcome back, Ms. Leah!</p> 
@@ -49,39 +68,115 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete }) {
                 <img src={teacher} alt="Teacher" />
                 <span>Ms. Leah</span>
             </div>
-        </div>
+        </header>
+
+        <section className="stats-row">
+            <div className="stat-card">
+                <div className="stat-num">{assignments.length}</div>
+                <div className="stat-label">Assignments</div>
+            </div>
+            <div className="stat-card">
+                <div className="stat-num green">{mockStudents.length}</div>
+                <div className="stat-label">Students</div>
+            </div>
+            <div className="stat-card">
+                <div className="stat-num amber">
+                    {/* sum of all completed assignments */}
+                    {mockStudents.reduce((sum, s) => sum + s.completedAssignments, 0)}
+                </div>
+                <div className="stat-label">Submissions</div>
+            </div>
+            <div className="stat-card">
+                <div className="stat-num indigo">{parents.length}</div>
+                <div className="stat-label">Parents Messages</div>
+            </div>
+        </section>    
          <div className="main-grid">
                <div className="card">
                     <div className="card-header">
-
                 <h2>Assignments</h2> 
-
                     <button
                     className="btn-add" 
-                    onClick={() => setShowForm(true)}>
+                    onClick={() => {   //cleares edit mode when creating new assignment
+                        setEditAssignments(null);
+                        setShowForm(true);
+                    }}
+                    >
                 + Create New
                 </button>
                   </div>
                   {showForm && (
             <AssignmentForm 
+            assignment={editAssignments}
             onSubmit={handleAddAssignment}
-            onCancel={() => setShowForm(false)}
+            onCancel={() => setShowForm(false)}         
             />
             )
-            }
-              
+            }        
             <AssignmentList 
             assignments={assignments}
             toggleComplete={toggleComplete}
+            showActions={true}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
             />
+
           </div>   
+          <div>
+            <section className="card">
+                <h2>Student Progress</h2>
+                <table className="data-table">
+                    <thead>
+                        <tr>
+                            <th>Students</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {mockStudents.map(s => {
+                            const progressPct = Math.round((s.completedAssignments / s.totalAssignments) * 100);
+                        return (
+                            <tr key={s.id}>
+                                <td><strong>{s.name}</strong></td>
+                                <td>
+                                    <div className="progress-cell">
+                                        <div className="progress-bar-wrap">
+                                            <div className="progress-bar-fill" style={{ width: `${progressPct}%`}} />
+                                        </div>
+                                        <span className="pct-label">{progressPct}%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        );
+                        })}
+                    </tbody>
+                </table>
+            </section>
+
+            <section className="card">
+                <h2>Respond to Parents</h2>
+                <ul className="message-list">
+                    {parents.map(p => (
+                        <li key={p.id} className="parent-message-item">
+                            <div className="parent-message-row">
+                                <div>
+                                    <div className="message-from">{p.name}</div>
+                                    <div className="message">Re: {p.child} . {p.lastMsgDate}</div>
+                                </div>
+                                <button
+                                className="reply-btn"
+                                onClick={() => setReplyId(replyId === p.id ? null : p.id)}
+                                >Reply</button>
+                            </div>
+
+                        </li>
+                    ))}
+                </ul>
+            </section>
           </div>
-          
+        </div>
     </div>
-    
-   </div>   
-  
-    
+</div>     
 );  
 };
 export default TeachersPage;    

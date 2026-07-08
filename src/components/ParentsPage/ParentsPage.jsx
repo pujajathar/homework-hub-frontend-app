@@ -76,7 +76,7 @@ function ParentsPage ({ assignments, toggleComplete }) {
             <div className="two-col">
        
             <div className="card">
-                <h2>Aarya's Assignments</h2>
+                <h2>Aarya J's Assignments</h2>
              {/* Assignment list component displays list of assignment */}
             <AssignmentList 
             assignments={assignments}
@@ -100,8 +100,7 @@ function ParentsPage ({ assignments, toggleComplete }) {
                 </section>
             </div>
            
-            </div>
-            <div className="form">
+           <div className="form">
                 <label>Contact Teacher:</label><br /><br />
                 <form onSubmit={handleSubmit}>  
                 <input type="text" name="subject" value={data.subject} onChange={handleChange} placeholder="Subject"/>
@@ -117,6 +116,8 @@ function ParentsPage ({ assignments, toggleComplete }) {
                
             
             </div>
+            </div>
+            
       
         </div>
          </div>

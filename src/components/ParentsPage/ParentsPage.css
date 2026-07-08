@@ -48,7 +48,7 @@
    width: 100%;
    max-width: 420px;
    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-   background-color: rgb(210, 230, 249);
+   background: #fff;
    
 }
 
@@ -181,10 +181,13 @@
 }
 .two-col{
     display: grid;
-    grid-template-columns: repeat(2, minmax(320px, 420px));
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
-    gap: 30px;
-    width: 100%;
+width: 100%;
+    gap: 1.5rem;
+    
+    gap: 100px;
+    
    margin: 40px 0;
 }
 .dashboard-content{

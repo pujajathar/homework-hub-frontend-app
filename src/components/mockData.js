@@ -1,5 +1,5 @@
 
-const mockAssignments = [
+export const mockAssignments = [
         {
             id:1,
             subject:"Math",
@@ -29,7 +29,39 @@ const mockAssignments = [
             status:"Pending"
         }
     ];
-    export default mockAssignments;
+
+export const mockStudents = [
+    {
+      id: 1,
+      name: "Emma Johnson",
+      parent: "Sarah Johnson",
+      completedAssignments: 1,
+      totalAssignments: 4,
+     },
+    {
+      id: 2,
+      name: "Liam Smith",
+      parent: "Michael Smith",
+      completedAssignments: 2,
+      totalAssignments: 8,
+    },
+    {
+      id: 3,
+      name: "Olivia Brown",
+      parent: "Jessica Brown",
+      completedAssignments: 4,
+      totalAssignments: 6,
+    },
+    {
+      id: 4,
+      name: "Noah Davis",
+      parent: "Emily Davis",
+      completedAssignments: 4,
+      totalAssignments: 7,
+    }
+  ];
+
+    
 
 
 
