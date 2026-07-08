@@ -19,12 +19,11 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
     const [showForm, setShowForm] = useState(false);
     const [editAssignments, setEditAssignments] = useState(null);
     const [replyId, setReplyId] = useState(null); //to reply to parents
-
-    const handleDelete = (id) => {
-        if(window.confirm("Are you sure?")) {   //asks for confirmation before deleting
+    const [replyText, setReplyText] = useState("");
+    const [replySent, setReplySent] = useState(false);
+    const handleDelete = (id) => {     
         setAssignments((prev) => prev.filter((assignment) => assignment.id !== id));
     };
-};
 
     const handleEdit = (id) => {
         const assignment = assignments.find((item) => item.id === id);
@@ -53,6 +52,12 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
     setEditAssignments(null);
     setShowForm(false);
 }   
+    const handleReply = (e) => {  //reply to parents
+        e.preventDefault();
+        setReplySent(true);
+        setReplyText("");
+        setTimeout(() => {setReplySent(false); setReplyId(null); }, 2000); //hides success msg after 2 seconds
+    }
     return (      
     <div>   
         <Header />
@@ -166,9 +171,24 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
                                 <button
                                 className="reply-btn"
                                 onClick={() => setReplyId(replyId === p.id ? null : p.id)}
-                                >Reply</button>
+                                >
+                                Reply
+                                </button>
                             </div>
-
+                            {replyId === p.id && (
+                                replySent? (
+                                    <p className="reply-sent">✅ Reply Sent</p>
+                                ) : (
+                                    <form className="reply-form" onSubmit={handleReply}>
+                                        <input value={replyText}
+                                        placeholder="Type your reply..."
+                                        onChange={e => setReplyText(e.target.value)}
+                                        required
+                                        />
+                                        <button  className="btn-subm" type="submit">Send</button>
+                                    </form>
+                                )
+                            )}
                         </li>
                     ))}
                 </ul>
