@@ -73,6 +73,16 @@ function StudentsPage ({ assignments, toggleComplete }) {
                     </div>
                     < p className="badge-hint">Keep working on your assignments to unlock more badges! </p>
                 </section>
+                <section className="card motivational">
+                    <h2>🏆 You are doing great!</h2>
+                    <p>
+                        You have completed <strong>{completed} out of {total}</strong> assignments this week.
+                        {completed === total ? 'Amazing - all done! 🎉' : ` Just ${total - completed} more to go. You have got this! 🚀`}
+                    </p>
+                    <div className="motivational-icon">
+                        {progressPct >= 80 ? '👏' : progressPct >= 50 ? '🌱' : '📈'}
+                    </div>
+                </section>
 
             </div>
         </div>
