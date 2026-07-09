@@ -7,7 +7,7 @@ import AssignmentList from './components/AssignmentList/AssignmentList';
 import ParentsPage from './components/ParentsPage/ParentsPage';
 import TeachersPage from './components/TeachersPage/TeachersPage';
 import StudentsPage from './components/StudentsPage/StudentsPage';
-import { mockAssignments, mockStudents } from './components/mockData';
+import { mockAssignments, mockStudents, mockBadges, mockMessages } from './components/mockData';
 import AssignmentForm from './components/AssignmentForm';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -25,6 +25,7 @@ function App() {
     };
  return (
   <div className='app'>
+    <Header />
   <main>
      <Routes> 
     <Route path='/' element={<HomePage />} />
@@ -41,6 +42,7 @@ function App() {
     <Route path='/students' element={<StudentsPage 
     assignments={assignments}
     setAssignments={setAssignments}
+    toggleComplete={toggleComplete}
     />} />
   </Routes>
    </main>

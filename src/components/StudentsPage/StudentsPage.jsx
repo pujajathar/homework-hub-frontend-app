@@ -2,15 +2,17 @@ import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import './StudentsPage.css';
 import AssignmentList from "../AssignmentList/AssignmentList";
-import { mockAssignments, mockStudent, mockBadges, mockTeacher } from "../mockData";
+import { mockAssignments, mockStudent, mockBadges, mockTeacher, mockStudents } from "../mockData";
 import ParentsPage from "../ParentsPage/ParentsPage";
+import { useState } from "react";
 
-function StudentsPage ({assignments, toggleComplete}) {
-
- const completed = assignments.filter(a => a.status === "completed");
+function StudentsPage ({ assignments, toggleComplete }) {
+ const [assignment, setAssignment] = useState(mockAssignments);
+ const completed = assignments.filter(a => a.completed).length;
  const total = assignments.length;
  const progressPct = (total > 0) ? Math.round((completed / total) * 100) : 0;
  const earnedCount = mockBadges.filter(b => b.earned).length;
+ 
 
 
     return (
@@ -43,9 +45,36 @@ function StudentsPage ({assignments, toggleComplete}) {
                 <h2>📚🎯 My Homework</h2>
                 <AssignmentList 
                 assignments={assignments}
-                onToggle={toggleComplete}
+                toggleComplete={toggleComplete}
                 />
+                <div className="progress-section">
+                    <div className="progress-label">
+                        <span>Weekly Progress</span>
+                        <strong>{progressPct}%</strong>
+                    </div>
+                    <div className="progress-bar-wrap">
+                        <div className="progress-bar-fill" style={{ width: `${progressPct}`}} />
+                    </div>                   
+                </div>
             </section> 
+
+            <div>
+                <section className="card">
+                    <h2>🏅My Badges ({earnedCount}/{mockBadges.length})</h2>
+                    <div className="badge-grid">
+                        {mockBadges.map(({id, icon, name, earned}) => (
+                            <div className="badge-item" key={id}>
+                                <div className={`badge-icon ${earned ? "earned" : "notearned"}`}>
+                                    {icon}
+                                </div>
+                                <span className="badge-name">{name}</span>
+                            </div>    
+                        ))}
+                    </div>
+                    < p className="badge-hint">Keep working on your assignments to unlock more badges! </p>
+                </section>
+
+            </div>
         </div>
         
       
