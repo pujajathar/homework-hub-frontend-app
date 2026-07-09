@@ -27,9 +27,11 @@ function Footer() {
             </a> 
             </nav>   
             <div>
-                <p>📍 Location: St.Louis, Missouri, USA</p>
-
-                <p>💙 Support: support@aaruedu.com </p>          
+                <h4> Contact </h4>
+                <p>📍 AaruEdu HQ</p>
+                <p>123 Future Path</p>
+                <p>St. Louis, MO 63456</p>
+                <p>💙 Support: support@aaruedu.com</p>          
             </div>
             </div>  
         </footer>

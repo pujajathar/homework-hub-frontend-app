@@ -1,8 +1,10 @@
-.home {
-    background-image: url('./src/assets/images/backgroung.png');
+.page {
+    background-image: url('../../assets/images/backgroung.png');
     background-position: center;
-    min-height: 90vh;
-    width: 100%;
+    min-height: 100vh;
+    padding: 30px 120px;
+    display: grid;
     background-size: cover;
+    background-repeat: no-repeat;
     
 }

@@ -5,6 +5,7 @@
     display: grid;
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
    
 }
 .top-nav {
@@ -47,7 +48,7 @@
    margin: 10px;
    width: 100%;
    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-   background-color: #fff
+   background-color: #ffffff;
   
 }
 .card-header{

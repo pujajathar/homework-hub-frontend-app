@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 function HomePage () {
  const navigate = useNavigate();
 return (
- <div>
+ <div className="home">
   <div className="tagline">
       <h1>AaruEdu - Homework Hub</h1>
       <h2>For Elementary Schools</h2>

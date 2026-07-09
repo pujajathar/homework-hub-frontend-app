@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import './AboutPage.css';
 function AboutPage () {
+    const team = [
+        {name: "Puja Jathar", role: "Founder & CEO", emoji:"👩‍💼"},
+        {name: "Place Holder", role: "Lead Developer", emoji:"👨‍💻"},
+        {name: "Place Holder", role: "Curriculum Designer", emoji: "👩‍🏫"},
+    ];
 
 return (
  <div className="page">
-    <Link to={"/"}>Home</Link>
     <h1>About Us</h1>
     <p>We believe every child deserves a stress-free homework experience. AaruEdu
     Homework Hub was built by parents and educators to bridge the gap between
@@ -39,13 +43,27 @@ return (
          I wanted to create a simple solution that helps families and teachers stay connected while reducing the stress of 
          keeping track of paper assignments.</p>
     </div>
+    <section className="team-section">
+        <h2>Meet the Team</h2>
+        <div className="team-grid">
+            {team.map(({ name, role, emoji }) => (
+                <div className="team-card" key={name}>
+                    <div className="team-avatar">{emoji}</div>
+                    <h4>{name}</h4>
+                    <p>{role}</p>
+                    </div>
+            ))}
+        </div>
+    </section>
+
+    </div>
     <div>
         <h3>Contact Us</h3>
         <p>Email:</p>
         <p>Phone:</p>
     </div>
 </div>
-</div>
+
 
 );
 
