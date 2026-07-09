@@ -49,7 +49,6 @@ function ParentsPage ({ assignments, toggleComplete }) {
     }
  return (
        <div className="dashboard">
-            <Link to={"/"}>Home</Link>
             <h1>Parent Dashboard</h1>
             <section className="stat-row">
             <div className="stat-card">
