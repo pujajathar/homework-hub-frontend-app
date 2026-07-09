@@ -2,25 +2,19 @@ import { Link } from "react-router-dom";
 import './AboutPage.css';
 function AboutPage () {
     const team = [
-        {name: "Puja Jathar", role: "Founder & CEO", emoji:"👩‍💼"},
-        {name: "Place Holder", role: "Lead Developer", emoji:"👨‍💻"},
-        {name: "Place Holder", role: "Curriculum Designer", emoji: "👩‍🏫"},
+        {name: "Puja Jathar", role: "Founder & Lead Developer", emoji:"👩‍💼"},
     ];
 
 return (
  <div className="page">
-    <h1>About Us</h1>
+    <section className="about-hero">
+    <h1>About AaruEdu</h1>
     <p>We believe every child deserves a stress-free homework experience. AaruEdu
     Homework Hub was built by parents and educators to bridge the gap between
     school and home. 
     </p>
-    <p><strong>AaruEdu</strong> makes it easy to manage homework without relying on paper handouts that can be misplaced
-    or forgotten.<br/>
-    Teachers can post assignments online, parents can easily keep track of their child's homework and upcoming
-    deadlines, and students can access their assignments anytime. <br/>
-    By bringing everything together in one place, we help families stay organized and make homework management 
-    simpler and more efficien.
-    </p>
+    </section>
+  
     <div className="about-grid">
     <div className="about-card">
         <div className="about-icon">🎯</div>
@@ -43,31 +37,22 @@ return (
          I wanted to create a simple solution that helps families and teachers stay connected while reducing the stress of 
          keeping track of paper assignments.</p>
     </div>
+    </div>
+
     <section className="team-section">
         <h2>Meet the Team</h2>
-        <div className="team-grid">
-            {team.map(({ name, role, emoji }) => (
-                <div className="team-card" key={name}>
-                    <div className="team-avatar">{emoji}</div>
-                    <h4>{name}</h4>
-                    <p>{role}</p>
-                    </div>
-            ))}
-        </div>
+        <div className="team-grid">            
+                <div className="team-card">
+                    <div className="team-avatar">👩‍💼</div>
+                    <h3>Puja Jathar</h3>
+                    <h4>Founder & Lead Developer</h4>
+                    <p>Leading the vision of AaruEdu and creating tools that help students, parents, and teachers 
+                        connect through better learning experiences. 
+                    </p>
+                </div>           
+        </div>        
     </section>
-
-    </div>
-    <div>
-        <h3>Contact Us</h3>
-        <p>Email:</p>
-        <p>Phone:</p>
-    </div>
 </div>
-
-
 );
-
-
-
 }
 export default AboutPage;
