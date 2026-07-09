@@ -7,35 +7,45 @@ import Footer from "../Footer/Footer";
 function HomePage () {
  const navigate = useNavigate();
 return (
- <div className="home">
-  <div className="tagline">
-      <h1>AaruEdu - Homework Hub</h1>
-      <h2>For Elementary Schools</h2>
+ <div className="page">
+  <section className="hero">
+   <div className="hero-left">
+      <h1 className="tagline">
+         <span>AaruEdu - Homework Hub</span> for Elementary Schools
+      </h1>
       <p>AaruEdu Homework Hub connects students, parents, and teachers in one place.<br/>
       It is designed by parents and educators to make homework management simple and organized.
       </p>
+       
+   <div className="hero-buttons">
+      <button variant="yellow" onClick={() => navigate("/parents")}>👨‍👩‍👧‍👦 I'm a Parent</button>
+      <button variant="green" onClick={() => navigate("/teachers")}>👩‍🏫 I'm a Teacher</button>
+      <button variant="blue" onClick={() => navigate("/students")}>🧑‍🎓 I'm a Student</button>
    </div>
-   <div className="buttons1">
-      <button onClick={() => navigate("/parents")}>👨‍👩‍👧‍👦 I'm a Parent</button>
-      <button onClick={() => navigate("/teachers")}>👩‍🏫 I'm a Teacher</button>
-      <button onClick={() => navigate("/students")}>🧑‍🎓 I'm a Student</button>
-   </div>
+    </div>
+    <div className="hero-image">🏫</div>
+</section>
+<section className="role-selection">
   <h2>Choose your role to get started</h2>
-   <div className="select-card">
+   <div className="role-cards">
      
-    <div className="role-card" onClick={() => navigate("/parents")}>
-      <h3>👨‍👩‍👧‍👦 Parents</h3>
+    <div className="role-card parent" onClick={() => navigate("/parents")}>
+      <div className="role-icon">👨‍👩‍👧‍👦</div>
+      <h3>Parent</h3>
       <p>View assignments, track progress and contact teachers easily</p>
    </div>
-   <div className="role-card" onClick={() => navigate("/teachers")}>
-      <h3>👩‍🏫 Teachers</h3>
+   <div className="role-card teacher" onClick={() => navigate("/teachers")}>
+      <div className="role-icon">👩‍🏫 </div>
+      <h3>Teacher</h3>
       <p>Create assignments, track progress and Respond to parents easily</p>
    </div>
-   <div className="role-card" onClick={() => navigate("/students")}>
-      <h3>🧑‍🎓 Students</h3>
+   <div className="role-card student" onClick={() => navigate("/students")}>
+      <div className="role-icon">🧑‍🎓</div> 
+      <h3>Student</h3>
       <p>View assignments, track progress and contact teachers easily</p>
    </div>
- </div>   
+ </div> 
+ </section>  
 </div>
        
 );
