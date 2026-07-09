@@ -19,8 +19,7 @@ function ParentsPage ({ assignments, toggleComplete }) {
     const pending = assignments.filter(a => !a.completed).length;
     const progressPct = assignments.length > 0 ? Math.round((completed/assignments.length)*100) : 0;
     const unread = mockMessages.filter(m => !m.read).length;
-
-     const handleChange = (e) => {
+    const handleChange = (e) => {
          
     const {name, value} = e.target;
         setSubmitted(false);  //message disappears after user starts typing
@@ -49,13 +48,7 @@ function ParentsPage ({ assignments, toggleComplete }) {
         })
     }
  return (
-    <div>
-         <Header />
-   
-    <div className="dashboard">
-        
-    
-           
+       <div className="dashboard">
             <Link to={"/"}>Home</Link>
             <h1>Parent Dashboard</h1>
             <section className="stat-row">
@@ -132,7 +125,6 @@ function ParentsPage ({ assignments, toggleComplete }) {
             </section>
             </div>    
         </div>
-    </div>
     )
 }
 export default ParentsPage;                    

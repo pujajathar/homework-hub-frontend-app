@@ -60,10 +60,7 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
     }
     return (      
     <div>   
-        <Header />
        <div className="dashboard">
-        
-
         <header className="dashboard-header">          
             <div className="header-text">
             <h1>Teacher Dashboard</h1>

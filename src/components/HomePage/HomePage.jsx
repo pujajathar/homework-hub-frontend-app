@@ -4,18 +4,11 @@ import './HomePage.css';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-
-
-
-
 function HomePage () {
  const navigate = useNavigate();
 return (
- <div className="home">
-   <Header />
-
-
-   <div className="tagline">
+ <div>
+  <div className="tagline">
       <h1>AaruEdu - Homework Hub</h1>
       <h2>For Elementary Schools</h2>
       <p>AaruEdu Homework Hub connects students, parents, and teachers in one place.<br/>
@@ -27,9 +20,7 @@ return (
       <button onClick={() => navigate("/teachers")}>👩‍🏫 I'm a Teacher</button>
       <button onClick={() => navigate("/students")}>🧑‍🎓 I'm a Student</button>
    </div>
-   
-  
-   <h2>Choose your role to get started</h2>
+  <h2>Choose your role to get started</h2>
    <div className="select-card">
      
     <div className="role-card" onClick={() => navigate("/parents")}>
@@ -44,9 +35,7 @@ return (
       <h3>🧑‍🎓 Students</h3>
       <p>View assignments, track progress and contact teachers easily</p>
    </div>
-  
-   </div>
-   
+ </div>   
 </div>
        
 );
