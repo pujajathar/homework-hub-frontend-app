@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { mockAssignments, mockStudents } from "../mockData";
 import AssignmentForm from "../AssignmentForm";
 import Footer from "../Footer/Footer";
@@ -9,7 +9,7 @@ import './TeachersPage.css';
 import AssignmentList from "../AssignmentList/AssignmentList";
 import Header from "../Header/Header";
 
-function TeachersPage ( { handleDelete, assignments, setAssignments } ) {
+function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } ) {
 
     
     const parents = [
@@ -22,6 +22,12 @@ function TeachersPage ( { handleDelete, assignments, setAssignments } ) {
     const [replyId, setReplyId] = useState(null); //to reply to parents
     const [replyText, setReplyText] = useState("");
     const [replySent, setReplySent] = useState(false);
+     const navigate = useNavigate();
+   const handleLogout = () => {
+        setUser(null);
+        navigate("/");
+    }
+ 
   
     const handleEdit = (id) => {
         const assignment = assignments.find((item) => item.id === id);
@@ -57,7 +63,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments } ) {
         setTimeout(() => {setReplySent(false); setReplyId(null); }, 2000); //hides success msg after 2 seconds
     }
     return (      
-    <div className="home">   
+    <div className="home">  
        <div className="page">
         <header className="dashboard-header">          
             <div className="header-text">

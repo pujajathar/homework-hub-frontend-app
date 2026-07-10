@@ -1,0 +1,17 @@
+
+.login-container {
+    min-height: 100vh;
+    width: 100%;
+    display:flex;
+     justify-content: center;
+     align-items: center;
+     padding: 40px;
+     border-radius: 16px;
+     background: #fff;
+    box-shadow: 0 2px 12px rgba(52, 51, 51, 0.7);
+
+}
+.bt {
+    width: 250px;
+    
+}

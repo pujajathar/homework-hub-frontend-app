@@ -1,11 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './HomePage.css';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Login from "../Login/Login";
 
-function HomePage () {
+function HomePage ( {setUser} ) {
  const navigate = useNavigate();
+ const[showLogin, setShowLogin] = useState(false);
+ const [selectedRole, setSelectedRole] = useState("");
 return (
    <div className="home">
  <div className="page">
@@ -18,11 +21,7 @@ return (
       It is designed by parents and educators to make homework management simple and organized.
       </p>
        
-   <div className="hero-buttons">
-      <button variant="yellow" onClick={() => navigate("/parents")}>👨‍👩‍👧‍👦 I'm a Parent</button>
-      <button variant="green" onClick={() => navigate("/teachers")}>👩‍🏫 I'm a Teacher</button>
-      <button variant="blue" onClick={() => navigate("/students")}>🧑‍🎓 I'm a Student</button>
-   </div>
+
     </div>
     <div className="hero-image">🏫</div>
 </section>
@@ -30,17 +29,29 @@ return (
   <h2>Choose your role to get started</h2>
    <div className="role-cards">
      
-    <div className="role-card parent" onClick={() => navigate("/parents")}>
+    <div className="role-card parent" onClick={() => {
+      navigate("/parents")
+         setSelectedRole("parent");
+      setShowLogin(true);
+    }}>
       <div className="role-icon">👨‍👩‍👧‍👦</div>
       <h3>Parent</h3>
       <p>View assignments, track progress and contact teachers easily</p>
    </div>
-   <div className="role-card teacher" onClick={() => navigate("/teachers")}>
+   <div className="role-card teacher" onClick={() => {
+      navigate("/teachers");
+      setSelectedRole("teacher");
+      setShowLogin(true);
+   }}>
       <div className="role-icon">👩‍🏫 </div>
       <h3>Teacher</h3>
       <p>Create assignments, track progress and Respond to parents easily</p>
    </div>
-   <div className="role-card student" onClick={() => navigate("/students")}>
+   <div className="role-card student" onClick={() => {
+      navigate("/students");
+         setSelectedRole("student");
+      setShowLogin(true);
+   }}>
       <div className="role-icon">🧑‍🎓</div> 
       <h3>Student</h3>
       <p>View assignments, track progress and contact teachers easily</p>
@@ -48,7 +59,16 @@ return (
  </div> 
  </section>  
 </div>
-</div>       
+{showLogin &&
+<Login 
+role={selectedRole}
+setUser={setUser}
+setShowLogin={setShowLogin}
+/>
+}
+</div>  
+
+    
 );
 }
 export default HomePage;
