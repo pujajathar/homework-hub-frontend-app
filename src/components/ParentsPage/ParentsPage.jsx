@@ -3,18 +3,24 @@ import { useState, useEffect } from "react";
 import AssignmentList from "../AssignmentList/AssignmentList";
 import { mockMessages, mockAssignments, mockParent } from "../mockData";
 import './ParentsPage.css';
+import { useNavigate } from "react-router-dom";
 
-function ParentsPage ({ assignments, toggleComplete, completedAssignments }) {
+function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUser }) {
   
     const [data, setData] = useState({
         subject:"",
         message:""
      });
+     const navigate = useNavigate();
     const [submitted, setSubmitted] = useState(false);
     const completed = completedAssignments.length;
     const pending = assignments.length - completed;
     const progressPct = assignments.length > 0 ? Math.round(( completed / assignments.length) * 100 ) : 0;
     const unread = mockMessages.filter(m => !m.read).length;
+    const handleLogout = () => {
+        setUser(null);
+        navigate("/");
+    }
     const handleChange = (e) => {
          
     const {name, value} = e.target;
@@ -45,6 +51,7 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments }) {
     }
  return (
     <div className="home">
+
        <div className="page">
         <header className="dashboard-header">
             <h1>👨‍👩‍👧 Parent Dashboard</h1>

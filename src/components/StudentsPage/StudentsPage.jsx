@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import './StudentsPage.css';
 import AssignmentList from "../AssignmentList/AssignmentList";
@@ -6,16 +6,22 @@ import { mockAssignments, mockStudent, mockBadges, mockTeacher, mockStudents } f
 import ParentsPage from "../ParentsPage/ParentsPage";
 import { useState } from "react";
 
-function StudentsPage ({ assignments, toggleComplete, completedAssignments}) {
+function StudentsPage ({ assignments, toggleComplete, completedAssignments, setUser}) {
  const [assignment, setAssignment] = useState(mockAssignments);
  const completed = completedAssignments.length;
  const total = assignments.length;
  const progressPct = (assignments.length > 0) ? Math.round((completed / assignments.length) * 100) : 0;
  const earnedCount = mockBadges.filter(b => b.earned).length;
+ const navigate = useNavigate();
+   const handleLogout = () => {
+        setUser(null);
+        navigate("/");
+    }
  
 
 
     return (
+
         <div className="home">
     <div className="page">
         <header className="dashboard-header">

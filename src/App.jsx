@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import AboutPage from './components/AboutPage/AboutPage';
 import AssignmentList from './components/AssignmentList/AssignmentList';
@@ -11,12 +11,28 @@ import { mockAssignments, mockStudents, mockBadges, mockMessages } from './compo
 import AssignmentForm from './components/AssignmentForm';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Login from './components/Login/Login';
 import './App.css';
 
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [loginRole, setLoginRole] = useState("");
   const [assignments, setAssignments] = useState(mockAssignments);
   const [completedAssignments, setCompletedAssignments] = useState([]);
+  const ProtectedRoute = ({allowedRole, children}) => {
+    if(!user) {
+      return ( <Login 
+        role={allowedRole}
+        setUser={setUser}
+        />
+      );
+    }
+    if(user.role !== allowedRole){
+      return <h2>Access Denied</h2>;
+    }
+    return children;
+  }
    const toggleComplete = (id) => {
         setCompletedAssignments((prev) => {
           if(prev.includes(id)) {
@@ -29,30 +45,46 @@ function App() {
         setAssignments((prev) => prev.filter((assignment) => assignment.id !== id));
     };
 
+
  return (
   <div className='app'>
-    <Header />
+    <Header user={user} setUser={setUser} />
   <main>
      <Routes> 
-    <Route path='/' element={<HomePage />} />
+    <Route path='/' element={<HomePage setUser={setUser} />} />
     <Route path='/aboutus' element={<AboutPage />} />
-    <Route path='/parents' element={<ParentsPage 
+    <Route path='/parents' element={
+    <ProtectedRoute allowedRole="parent">
+    <ParentsPage 
+    setUser={setUser}
     assignments={assignments} 
     setAssignments={setAssignments}
     toggleComplete={toggleComplete}
     completedAssignments={completedAssignments}
-    />} />
-    <Route path='/teachers' element={<TeachersPage 
+    />
+    </ProtectedRoute>
+   } />
+    <Route path='/teachers' element={
+    <ProtectedRoute allowedRole="teacher">
+    <TeachersPage 
+    setUser={setUser}
     assignments={assignments}
     setAssignments={setAssignments}
     handleDelete={handleDelete}
-   />} /> 
-    <Route path='/students' element={<StudentsPage 
+   />
+   </ProtectedRoute>
+  } /> 
+    <Route path='/students' element={
+    <ProtectedRoute allowedRole="student">
+    <StudentsPage 
+    setUser={setUser}
     assignments={assignments}
     setAssignments={setAssignments}
     toggleComplete={toggleComplete}
     completedAssignments={completedAssignments}
-    />} />
+    />
+    </ProtectedRoute>
+  } />
   </Routes>
    </main>
   <Footer />

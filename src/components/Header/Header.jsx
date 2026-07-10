@@ -1,8 +1,13 @@
 import logo from '../../assets/images/logo.png';
 import './Header.css';
 import { useNavigate } from 'react-router-dom';
-function Header () {
+function Header ( { role, user, setUser } ) {
 const navigate = useNavigate();
+ const handleLogout = () => {
+        setUser(null);
+        navigate("/");
+    }
+
     return (
         <div className='header'>
              <div>
@@ -13,9 +18,31 @@ const navigate = useNavigate();
             <nav className="buttons">
       <button onClick={() => navigate("/")}>Home</button>
       <button onClick={() => navigate("/aboutus")}>About Us</button>
-      <button onClick={() => navigate("/parents")}>Parents</button>
-      <button onClick={() => navigate("/teachers")}>Teachers</button>
-      <button onClick={() => navigate("/students")}>Students</button>
+      {user?.role === "parent" && (
+      <button
+       onClick={() => navigate("/parents")}
+       >
+        Parents
+        </button>
+      )}
+      {user?.role === "teacher" && (
+      <button
+       onClick={() => navigate("/teachers")}>
+        Teachers
+        </button>
+      )}
+      {user?.role === "student" && (
+      <button
+      disabled = {user?.role !== "student"}
+      onClick={() => navigate("/students")}>
+        Students
+        </button>
+      )}
+        {user && (
+            <button onClick={handleLogout}>
+                Logout
+            </button>
+        )}
    </nav>
 
         </div>
