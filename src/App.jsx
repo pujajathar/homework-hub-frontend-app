@@ -16,13 +16,19 @@ import './App.css';
 
 function App() {
   const [assignments, setAssignments] = useState(mockAssignments);
+  const [completedAssignments, setCompletedAssignments] = useState([]);
    const toggleComplete = (id) => {
-        setAssignments((prev) => 
-        prev.map((a) => 
-        a.id === id ? {...a, completed : !a.completed} : a
-    )
-);
+        setCompletedAssignments((prev) => {
+          if(prev.includes(id)) {
+            return prev.filter((assignmentId) => assignmentId !== id);
+          }
+          return [...prev, id];
+    });
+  };
+      const handleDelete = (id) => {     
+        setAssignments((prev) => prev.filter((assignment) => assignment.id !== id));
     };
+
  return (
   <div className='app'>
     <Header />
@@ -34,15 +40,18 @@ function App() {
     assignments={assignments} 
     setAssignments={setAssignments}
     toggleComplete={toggleComplete}
+    completedAssignments={completedAssignments}
     />} />
     <Route path='/teachers' element={<TeachersPage 
     assignments={assignments}
     setAssignments={setAssignments}
-    toggleComplete={toggleComplete} />} /> 
+    handleDelete={handleDelete}
+   />} /> 
     <Route path='/students' element={<StudentsPage 
     assignments={assignments}
     setAssignments={setAssignments}
     toggleComplete={toggleComplete}
+    completedAssignments={completedAssignments}
     />} />
   </Routes>
    </main>

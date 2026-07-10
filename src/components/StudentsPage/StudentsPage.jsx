@@ -6,11 +6,11 @@ import { mockAssignments, mockStudent, mockBadges, mockTeacher, mockStudents } f
 import ParentsPage from "../ParentsPage/ParentsPage";
 import { useState } from "react";
 
-function StudentsPage ({ assignments, toggleComplete }) {
+function StudentsPage ({ assignments, toggleComplete, completedAssignments}) {
  const [assignment, setAssignment] = useState(mockAssignments);
- const completed = assignments.filter(a => a.completed).length;
+ const completed = completedAssignments.length;
  const total = assignments.length;
- const progressPct = (total > 0) ? Math.round((completed / total) * 100) : 0;
+ const progressPct = (assignments.length > 0) ? Math.round((completed / assignments.length) * 100) : 0;
  const earnedCount = mockBadges.filter(b => b.earned).length;
  
 
@@ -40,12 +40,13 @@ function StudentsPage ({ assignments, toggleComplete }) {
                 <div className="stat-label">Points ⭐</div>
             </div>
         </section>
-        <div className="two-columns">
+        <div className="two-col">
             <section className="card">
                 <h2>📚🎯 My Homework</h2>
                 <AssignmentList 
                 assignments={assignments}
                 toggleComplete={toggleComplete}
+                completedAssignments={completedAssignments}
                 />
                 <div className="progress-section">
                     <div className="progress-label">

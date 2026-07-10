@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { mockAssignments } from "./mockData";
 
 
-function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel}) { //assignment propery passing from teachers page
+function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handleDelete}) { //assignment propery passing from teachers page
 
     const [assignment, setAssignment] = useState({
             subject: editAssignment?.subject || "",
