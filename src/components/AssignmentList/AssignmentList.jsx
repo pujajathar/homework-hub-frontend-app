@@ -28,7 +28,7 @@ function AssignmentList ({
                             {assignment.title}
                         </h3>
                         <p className="due">
-                            Due {assignment.dueDate}
+                            Due on : {assignment.dueDate}
                         </p>
                     </div>
                     </div>
@@ -49,8 +49,7 @@ function AssignmentList ({
                             </>
                         )}
                         </div>
-
-                    </div>  
+                </div>  
             ))}
         </div> 
             );

@@ -57,7 +57,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments } ) {
         setTimeout(() => {setReplySent(false); setReplyId(null); }, 2000); //hides success msg after 2 seconds
     }
     return (      
-    <div>   
+    <div className="home">   
        <div className="page">
         <header className="dashboard-header">          
             <div className="header-text">

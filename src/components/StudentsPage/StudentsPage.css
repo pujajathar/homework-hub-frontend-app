@@ -1,4 +1,10 @@
-
+.home {
+    background-image: url('../../assets/images/background.png');
+    background-position: center;
+    min-height: 100vh;
+    padding: 30px 120px;
+    background-size: cover;
+}
 .badge-grid {
     display: flex;
     flex-wrap: wrap;
@@ -40,8 +46,8 @@
     color: rgb(24, 21, 55);
     }
 .badge-hint {
-    font-size: 0.82rem;
-    color: rgb(207, 126, 21);
+    font-size: 1rem;
+    color: rgb(172, 20, 71);
     margin-top: 1rem;
 } 
 .progress-section {

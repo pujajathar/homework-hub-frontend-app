@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 function HomePage () {
  const navigate = useNavigate();
 return (
+   <div className="home">
  <div className="page">
   <section className="hero">
    <div className="hero-left">
@@ -47,7 +48,7 @@ return (
  </div> 
  </section>  
 </div>
-       
+</div>       
 );
 }
 export default HomePage;
