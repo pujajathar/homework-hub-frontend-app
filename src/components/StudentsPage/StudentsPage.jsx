@@ -16,6 +16,7 @@ function StudentsPage ({ assignments, toggleComplete, completedAssignments}) {
 
 
     return (
+        <div className="home">
     <div className="page">
         <header className="dashboard-header">
             <h1>🧑‍🎓 Student Dashboard</h1>
@@ -33,7 +34,7 @@ function StudentsPage ({ assignments, toggleComplete, completedAssignments}) {
             </div>
             <div className="stat-card">
                 <div className="stat-num amber">{total - completed}</div>
-                <div className="stat-label">To Do 📌</div>
+                <div className="stat-label">Pending 📌</div>
             </div>
             <div className="stat-card">
                 <div className="stat-num purple">{mockStudent.points}</div>
@@ -54,7 +55,7 @@ function StudentsPage ({ assignments, toggleComplete, completedAssignments}) {
                         <strong>{progressPct}%</strong>
                     </div>
                     <div className="progress-bar-wrap">
-                        <div className="progress-bar-fill" style={{ width: `${progressPct}`}} />
+                        <div className="progress-bar-fill" style={{ width: `${progressPct}%`}} />
                     </div>                   
                 </div>
             </section> 
@@ -77,8 +78,8 @@ function StudentsPage ({ assignments, toggleComplete, completedAssignments}) {
                 <section className="card motivational">
                     <h2>🏆 You are doing great!</h2>
                     <p>
-                        You have completed <strong>{completed} out of {total}</strong> assignments this week.
-                        {completed === total ? 'Amazing - all done! 🎉' : ` Just ${total - completed} more to go. You have got this! 🚀`}
+                        You have completed <strong>{completed} out of {total}</strong> assignments this week.<br />
+                        {completed === total ? ' Amazing - well done! 🎉' : ` Just ${total - completed} more to go. You have got this! 🚀`}
                     </p>
                     <div className="motivational-icon">
                         {progressPct >= 80 ? '👏' : progressPct >= 50 ? '🌱' : '📈'}
@@ -89,7 +90,7 @@ function StudentsPage ({ assignments, toggleComplete, completedAssignments}) {
         </div>
         
       
-       
+      </div> 
     </div>
     );
 }

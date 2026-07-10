@@ -6,6 +6,7 @@ function AboutPage () {
     ];
 
 return (
+ <div className="home">  
  <div className="page">
     <section className="about-hero">
     <h1>About AaruEdu</h1>
@@ -53,6 +54,7 @@ return (
         </div>        
     </section>
 </div>
+</div> 
 );
 }
 export default AboutPage;

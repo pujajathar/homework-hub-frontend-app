@@ -1,5 +1,11 @@
 
-
+.home {
+    background-image: url('../../assets/images/background.png');
+    background-position: center;
+    min-height: 100vh;
+    padding: 30px 120px;
+    background-size: cover;
+}
 .progress-label{
     display: flex;
     justify-content: space-between;
@@ -27,7 +33,7 @@
     border-bottom: 1px solid #f3f4f6;
 }
 .message-item:last-child {border-bottom: none;}
-.message-item.unread .message-subject {
+.message-item.unread  .message-subject {
     font-weight: 700;
 }
 .message-dot {

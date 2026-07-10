@@ -13,7 +13,7 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments }) {
     const [submitted, setSubmitted] = useState(false);
     const completed = completedAssignments.length;
     const pending = assignments.length - completed;
-    const progressPct = assignments.length > 0 ? Math.round((completed/assignments.length)*100) : 0;
+    const progressPct = assignments.length > 0 ? Math.round(( completed / assignments.length) * 100 ) : 0;
     const unread = mockMessages.filter(m => !m.read).length;
     const handleChange = (e) => {
          
@@ -44,6 +44,7 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments }) {
         })
     }
  return (
+    <div className="home">
        <div className="page">
         <header className="dashboard-header">
             <h1>👨‍👩‍👧 Parent Dashboard</h1>
@@ -97,10 +98,10 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments }) {
                 <ul className="message-list">
                     {mockMessages.map(m => (
                         <li key={m.id} className={`message-item ${m.read ? "" : "unread"}`}>
-                            <div className={`message-dot ${m.read} ? "read" : ""}`} />
+                            <div className={`message-dot ${m.read ? "read" : ""}`} />
                             <div>
                                 <div className="message-from">{m.from}</div>
-                                <div className="messade-subject">{m.subject}</div>
+                                <div className="message-subject">{m.subject}</div>
                             </div>
                             <span className="message-date">{m.date}</span>
                         </li>             
@@ -123,6 +124,7 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments }) {
             </div>
             </div>    
         </div>
+       </div> 
     )
 }
 
