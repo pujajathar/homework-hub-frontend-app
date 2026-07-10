@@ -9,7 +9,8 @@ import './TeachersPage.css';
 import AssignmentList from "../AssignmentList/AssignmentList";
 import Header from "../Header/Header";
 
-function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
+function TeachersPage ( { handleDelete, assignments, setAssignments } ) {
+
     
     const parents = [
     {id: 1, name: "Sarah Johnson", child: "Emma Johnson",lastMsgDate: "2026-07-06"},
@@ -21,10 +22,7 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
     const [replyId, setReplyId] = useState(null); //to reply to parents
     const [replyText, setReplyText] = useState("");
     const [replySent, setReplySent] = useState(false);
-    const handleDelete = (id) => {     
-        setAssignments((prev) => prev.filter((assignment) => assignment.id !== id));
-    };
-
+  
     const handleEdit = (id) => {
         const assignment = assignments.find((item) => item.id === id);
         setEditAssignments(assignment);
@@ -45,7 +43,7 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
             {
                 ...newAssignment,
                 id: Date.now(),
-                completed: false
+                
             }
         ]);
     }
@@ -60,7 +58,7 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
     }
     return (      
     <div>   
-       <div className="dashboard">
+       <div className="page">
         <header className="dashboard-header">          
             <div className="header-text">
             <h1>Teacher Dashboard</h1>
@@ -93,12 +91,12 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
                 <div className="stat-label">Parents Messages</div>
             </div>
         </section>    
-         <div className="main-grid">
+         <div className="two-col">
                <div className="card">
                     <div className="card-header">
                 <h2>Assignments</h2> 
                     <button
-                    className="btn-add" 
+                    className="btn-sm" variant="green"
                     onClick={() => {   //cleares edit mode when creating new assignment
                         setEditAssignments(null);
                         setShowForm(true);
@@ -117,13 +115,11 @@ function TeachersPage ({ assignments, setAssignments, toggleComplete}) {
             }        
             <AssignmentList 
             assignments={assignments}
-            toggleComplete={toggleComplete}
             showActions={true}
-            onDelete={handleDelete}
+            handleDelete={handleDelete}
             onEdit={handleEdit}
             />
-
-          </div>   
+         </div>   
           <div>
             <section className="card">
                 <h2>Student Progress</h2>

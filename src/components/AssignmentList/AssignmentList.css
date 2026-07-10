@@ -4,14 +4,8 @@
   margin: 0;
   width: 300px;
 }
-.card {
-   border-radius: 22px;
-   padding: 30px;
-   width: 600px;
-   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-   background-color: rgb(210, 230, 249);
-  
-}
+
+
 .assignment-row{
     display: flex;
     justify-content: space-between;

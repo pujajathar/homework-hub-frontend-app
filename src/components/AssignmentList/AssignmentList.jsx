@@ -2,12 +2,12 @@
 import './AssignmentList.css';
 function AssignmentList ({
     assignments, 
-    setAssignments, 
     toggleComplete, 
+    completedAssignments = [],
     showCheckbox=true,
     showActions=false,
     onEdit,
-    onDelete
+    handleDelete
  }) {
   
     return (
@@ -16,13 +16,15 @@ function AssignmentList ({
             {assignments.map((assignment) => (
                 <div key={assignment.id} className="assignment-row">
                     <div className="assignment-left"> {/*left side */}
+                        {toggleComplete && (
                         <button 
                             className="check-btn"
                             onClick={() => toggleComplete(assignment.id)}>
-                            {assignment.completed ? "✅":"⬜"}
+                            {completedAssignments.includes(assignment.id) ? "✅":"⬜"}
                         </button>
+                        )}
                     <div>
-                        <h3 className={assignment.completed ? "completed" : ''}>
+                        <h3 className={completedAssignments.includes(assignment.id) ? "completed" : ''}>
                             {assignment.title}
                         </h3>
                         <p className="due">
@@ -41,7 +43,7 @@ function AssignmentList ({
                                 Edit
                             </button>
                             <button className='delete-btn'
-                            onClick={() => onDelete(assignment.id)}>
+                            onClick={() => handleDelete(assignment.id)}>
                                 Delete
                             </button>
                             </>

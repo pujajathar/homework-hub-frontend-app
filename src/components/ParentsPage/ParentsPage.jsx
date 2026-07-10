@@ -1,22 +1,18 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import AssignmentList from "../AssignmentList/AssignmentList";
-import { mockMessages } from "../mockData";
+import { mockMessages, mockAssignments, mockParent } from "../mockData";
 import './ParentsPage.css';
-import { useEffect } from "react";
-import Header from "../Header/Header";
 
-
-
-function ParentsPage ({ assignments, toggleComplete }) {
+function ParentsPage ({ assignments, toggleComplete, completedAssignments }) {
   
     const [data, setData] = useState({
         subject:"",
         message:""
      });
     const [submitted, setSubmitted] = useState(false);
-    const completed = assignments.filter(a => a.completed).length;
-    const pending = assignments.filter(a => !a.completed).length;
+    const completed = completedAssignments.length;
+    const pending = assignments.length - completed;
     const progressPct = assignments.length > 0 ? Math.round((completed/assignments.length)*100) : 0;
     const unread = mockMessages.filter(m => !m.read).length;
     const handleChange = (e) => {
@@ -48,9 +44,13 @@ function ParentsPage ({ assignments, toggleComplete }) {
         })
     }
  return (
-       <div className="dashboard">
-            <h1>Parent Dashboard</h1>
-            <section className="stat-row">
+       <div className="page">
+        <header className="dashboard-header">
+            <h1>👨‍👩‍👧 Parent Dashboard</h1>
+            <p>Welcome back, <strong>{mockParent.name}</strong> - tracking {mockParent.child} ({mockParent.grade})</p>
+        </header>
+
+            <section className="stats-row">
             <div className="stat-card">
                 <div className="stat-num">{assignments.length}</div>
                 <div className="stat-label">Total</div>
@@ -67,36 +67,33 @@ function ParentsPage ({ assignments, toggleComplete }) {
                 <div className="stat-num red">{unread}</div>
                 <div className="stat-label">Unread Messages</div>
             </div>
-
             </section>
-            <div className="two-col">
-       
-            <div className="card">
-                <h2>Aarya J's Assignments</h2>
+
+            <div className="two-col">      
+            <section className="card">
+                <h2>📝 {mockParent.child}'s Assignments</h2>
              {/* Assignment list component displays list of assignment */}
             <AssignmentList 
             assignments={assignments}
             toggleComplete={toggleComplete}
+            completedAssignments={completedAssignments}
             />
-            </div>
-            
+            </section>
             <div>  {/*Progress section */}
                 <section className="card">
-                    <h2>Progress</h2>
+                    <h2>📊 Progress</h2>
                     <div className="progress-label">
                         <span>Overall Completion</span>
                         <strong>{progressPct}%</strong>
                         </div>
                         <div className="progress-bar-wrap">
                             <div className="progress-bar-fill" style={{ width: `${progressPct}%`}} />
-                        </div>
-                          
+                        </div>                          
                             <p className="progress-note">{completed} of {assignments.length} assignments completed this week.</p>
-                       
                 </section>
-            </div>
-            <section className="card">
-                <h2>Messages from Teachers</h2>
+          
+                <section className="card">
+                <h2>💬 Messages from Teachers</h2>
                 <ul className="message-list">
                     {mockMessages.map(m => (
                         <li key={m.id} className={`message-item ${m.read ? "" : "unread"}`}>
@@ -110,22 +107,25 @@ function ParentsPage ({ assignments, toggleComplete }) {
                     ))}
                 </ul>
             </section>
+
            <section className="card">
-                <label>Contact Teacher:</label><br /><br />
-                <form onSubmit={handleSubmit}>  
+                <label>📨 Contact Teacher:</label><br /><br />
+                <form className="contact-form" onSubmit={handleSubmit}>  
                 <input type="text" name="subject" value={data.subject} onChange={handleChange} placeholder="Subject"/>
-                    <br /><br />
+                 
                 <textarea name="message" value={data.message} maxLength={200} onChange={handleChange} 
                     placeholder="Message...."/>
-                    <br /><br />
-                <button type="submit">Submit</button>
+                   
+                <button variant="yellow" type="submit">Send Message</button>
                 </form>
                 {submitted && (<p className="success-message">✅ Message has been sent successfully!</p>)}
             </section>
+            </div>
             </div>    
         </div>
     )
 }
+
 export default ParentsPage;                    
                                   
                               
