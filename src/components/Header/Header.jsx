@@ -9,24 +9,25 @@ const navigate = useNavigate();
     }
 
     return (
-        <div className='header'>
-             <div>
+        <header className='header'>
+            
+             <div className='img'>
             <img src={logo} alt='AaruEdu Logo' />
         </div>
-       
-        <div>            
-            <nav className="buttons">
+       <nav className="buttons">
+                   
+            
       <button onClick={() => navigate("/")}>Home</button>
       <button onClick={() => navigate("/aboutus")}>About Us</button>
       {user?.role === "parent" && (
-      <button
+      <button 
        onClick={() => navigate("/parents")}
        >
         Parents
         </button>
       )}
       {user?.role === "teacher" && (
-      <button
+      <button 
        onClick={() => navigate("/teachers")}>
         Teachers
         </button>
@@ -43,11 +44,9 @@ const navigate = useNavigate();
                 Logout
             </button>
         )}
-   </nav>
-
-        </div>
-      </div> 
-    
+       
+      </nav>
+    </header>
     );
 }
 export default Header;

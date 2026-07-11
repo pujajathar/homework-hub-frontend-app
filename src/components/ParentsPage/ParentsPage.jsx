@@ -4,6 +4,7 @@ import AssignmentList from "../AssignmentList/AssignmentList";
 import { mockMessages, mockAssignments, mockParent } from "../mockData";
 import './ParentsPage.css';
 import { useNavigate } from "react-router-dom";
+import Button from "../Button/Button";
 
 function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUser }) {
   
@@ -124,7 +125,7 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUs
                 <textarea name="message" value={data.message} maxLength={200} onChange={handleChange} 
                     placeholder="Message...."/>
                    
-                <button variant="yellow" type="submit">Send Message</button>
+                <Button variant="yellow" type="submit">Send Message</Button>
                 </form>
                 {submitted && (<p className="success-message">✅ Message has been sent successfully!</p>)}
             </section>

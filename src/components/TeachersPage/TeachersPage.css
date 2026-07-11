@@ -76,6 +76,7 @@
     font-weight: bold;
     transition: .3s;
     font-size: 17px;
+    padding: 6px 14px;
     
 }
 .message-list {list-style: none; padding: 0;}
@@ -83,14 +84,12 @@
     border-bottom: none;
     margin-bottom: 0;
 }
-.parent-message-item:last-child {
-    border-bottom: none; margin-bottom: 0;
-}
+
 .parent-message-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 .message-from {
     font-weight: 600;
@@ -154,6 +153,27 @@
 }
 .stat-num.indigo{
     color: rgb(153, 68, 214);
+}
+.reply-sent {
+    color: #10b981;
+    font-weight: 600;
+    margin-top: 8px;
+    font-size: 15px;
+}
+.reply-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+.reply-form input {
+    flex: 1;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1.5px solid #e5e7eb;
+    font-family: inherit;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
 @media(max-width:768px){

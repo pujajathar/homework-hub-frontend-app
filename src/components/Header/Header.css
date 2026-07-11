@@ -1,15 +1,21 @@
+
 img {
     width: 150px;
     border-radius: 50%;
 }
 .header {
     display: flex;
+    
     align-items: center;
     justify-content: space-between;
     background-color: rgb(224, 169, 240);
 }
 .buttons {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 2rem;
     gap: 15px;
     flex-wrap: wrap;
 }

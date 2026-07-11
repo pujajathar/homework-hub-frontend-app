@@ -45,7 +45,6 @@ function App() {
         setAssignments((prev) => prev.filter((assignment) => assignment.id !== id));
     };
 
-
  return (
   <div className='app'>
     <Header user={user} setUser={setUser} />
