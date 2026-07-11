@@ -26,7 +26,7 @@ function Footer() {
               LinkedIn 
             </a> 
             </nav>   
-            <div>
+            <div className='contact'>
                 <h4> Contact </h4>
                 <p>📍 AaruEdu HQ</p>
                 <p>123 Future Path</p>

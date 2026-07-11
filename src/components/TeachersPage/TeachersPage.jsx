@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { mockAssignments, mockStudents } from "../mockData";
 import AssignmentForm from "../AssignmentForm";
 import Footer from "../Footer/Footer";
+import Button from "../Button/Button";
 import teacher from "../../assets/images/teacher.png";
 import './TeachersPage.css';
 import AssignmentList from "../AssignmentList/AssignmentList";
@@ -184,7 +185,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
                                         onChange={e => setReplyText(e.target.value)}
                                         required
                                         />
-                                        <button  className="btn-subm" type="submit">Send</button>
+                                        <Button variant="green"  className="btn btn-sm" type="submit">Send</Button>
                                     </form>
                                 )
                             )}

@@ -31,7 +31,7 @@ return (
      
     <div className="role-card parent" onClick={() => {
       navigate("/parents")
-         setSelectedRole("parent");
+      setSelectedRole("parent");
       setShowLogin(true);
     }}>
       <div className="role-icon">👨‍👩‍👧‍👦</div>
@@ -66,9 +66,7 @@ setUser={setUser}
 setShowLogin={setShowLogin}
 />
 }
-</div>  
-
-    
+</div>     
 );
 }
 export default HomePage;
