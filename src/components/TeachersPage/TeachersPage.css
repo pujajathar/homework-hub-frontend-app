@@ -7,9 +7,9 @@
 }
 .card-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 .assignment-list{
   list-style: none;
@@ -29,46 +29,24 @@
 }
 .assignment-right{
     display: flex;
-    align-items: center;
-    
-    
+    align-items: center;   
 }
-.check-btn{
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-}
+
 .tag{
-   
-  padding: 6px 14px;
+   padding: 6px 14px;
   border-radius: 30px;
   font-size: 13px;
   font-weight: 600;
-
 }
-.tag.math{
-  background-color: rgb(223, 176, 143);
-}
-.tag.science{
-      background-color: rgb(174, 213, 136);
-
-}
-.tag.english{
-      background-color: rgb(127, 178, 219);
-
-}
-.tag.art{
-      background-color: rgb(216, 159, 227);
-
-}
-
+.tag.math{ background-color: rgb(223, 176, 143);}
+.tag.science{ background-color: rgb(174, 213, 136);}
+.tag.english{ background-color: rgb(127, 178, 219);}
+.tag.art{ background-color: rgb(216, 159, 227);}
 .completed{
     text-decoration: line-through;
     color: gray;
 }
 .btn-sm{
-    background-color: green;
     color: white;
     border: none;
     border-radius: 25px;
@@ -76,20 +54,19 @@
     font-weight: bold;
     transition: .3s;
     font-size: 17px;
-    padding: 6px 14px;
-    
+    padding: 6px 14px;    
 }
 .message-list {list-style: none; padding: 0;}
 .parent-message-item:last-child{
     border-bottom: none;
     margin-bottom: 0;
 }
-
 .parent-message-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+    padding-bottom: 10px;
 }
 .message-from {
     font-weight: 600;
@@ -111,7 +88,6 @@
     border-radius: 20px;
     padding: 15px;
     gap: 8px;
- 
 }
 .profile img{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -123,27 +99,19 @@
 .profile span{
     font-size: 18px;
     font-weight: 600;
-
 }
 .header-text {
     display: flex;
    flex-direction: column;
-  
-
 }
 .header-text h1{
-   
-    font-size: 34px;
+   font-size: 34px;
     margin: 0;
 }
 .header-text p{
     font-size: 16px;
 }
-
-
-.stat-num.green {
-    color: #10b981;
-}
+.stat-num.green { color: #10b981;}
 .stat-num.amber{
     color: #f59e0b;
 }

@@ -87,12 +87,14 @@
 }
 .team-card p { color:  #13171f; font-size: 1rem; margin-top: 0.25rem;}
 
+/*Media query for mobile*/
 @media (max-width: 480px) {
     .team-card {
         width: 90%;
     }
     .about-hero h1 {font-size: 1.8rem;}
 }
+/*Media query for tablet*/
 @media (max-width: 768px) {
     .about-grid {grid-template-columns: 1fr;}
 }

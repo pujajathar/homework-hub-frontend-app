@@ -2,20 +2,19 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 300px;
+  width: 100%;
 }
-
-
 .assignment-row{
     display: flex;
     justify-content: space-between;
-    width: 380px;
+    width: 100%;
+    max-width: 700px;
     gap: 15px;
     align-items:center;
-    padding: 10px;
    padding: 18px;
    border-radius: 12px;
    background: white;
+   box-sizing: border-box;
 }
 .assignment-left{
     display: flex;
@@ -25,6 +24,7 @@
 .assignment-right{
     display: flex;
     align-items: center;
+    gap: 15px;
 }
 .check-btn{
     background: none;
@@ -43,13 +43,36 @@
   font-size: 13px;
   margin: auto;
   font-weight: 600;
+  cursor: pointer;
   background-color: rgb(84, 156, 84);
 }
+.edit-btn:hover {
+    background-color: rgb(44, 195, 30);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.delete-btn:hover {
+    background-color: rgb(223, 97, 43);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
 .delete-btn{
     color: white;
     background-color: rgb(237, 128, 128);
  padding: 6px 14px;
   border-radius: 30px;
   font-size: 13px;
+  cursor: pointer;
   font-weight: 600;
 }
+
+.buttonspace {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+    gap: 1rem;
+}
+

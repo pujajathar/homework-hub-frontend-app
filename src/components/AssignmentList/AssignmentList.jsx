@@ -37,7 +37,7 @@ function AssignmentList ({
                                 {assignment.subject}
                             </span>
                         {showActions && (
-                            <>
+                            <div className='buttonspace'>
                             <button className='edit-btn'
                             onClick={() => onEdit(assignment.id)}>
                                 Edit
@@ -46,7 +46,7 @@ function AssignmentList ({
                             onClick={() => handleDelete(assignment.id)}>
                                 Delete
                             </button>
-                            </>
+                            </div>
                         )}
                         </div>
                 </div>  

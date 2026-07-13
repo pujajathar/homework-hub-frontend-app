@@ -101,9 +101,9 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
          <div className="two-col">
                <div className="card">
                     <div className="card-header">
-                <h2>Assignments</h2> 
+                <h2 style={ {'font-size':"25px"}}>📝 Assignments 📝</h2> 
                     <button
-                    className="btn-sm" variant="green"
+                    className="btn btn-green" variant="green"
                     onClick={() => {   //cleares edit mode when creating new assignment
                         setEditAssignments(null);
                         setShowForm(true);
@@ -169,7 +169,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
                                     <div className="message">Re: {p.child} . {p.lastMsgDate}</div>
                                 </div>
                                 <button
-                                className="reply-btn"
+                                className="btn btn-green"
                                 onClick={() => setReplyId(replyId === p.id ? null : p.id)}
                                 >
                                 Reply
