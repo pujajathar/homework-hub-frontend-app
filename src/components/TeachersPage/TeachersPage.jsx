@@ -27,15 +27,12 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
    const handleLogout = () => {
         setUser(null);
         navigate("/");
-    }
- 
-  
+    } 
     const handleEdit = (id) => {
         const assignment = assignments.find((item) => item.id === id);
         setEditAssignments(assignment);
         setShowForm(true);
     };
-
    const handleAddAssignment = (newAssignment) => {
     if(editAssignments) {  //updates existing assignment
      setAssignments(prev => 
@@ -43,7 +40,6 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
             item.id === newAssignment.id ? newAssignment : item
         )
     );
-
     } else {
         setAssignments(prev => [   //adds new assignment
             ...prev,
@@ -56,7 +52,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
     }
     setEditAssignments(null);
     setShowForm(false);
-}   
+   }   
     const handleReply = (e) => {  //reply to parents
         e.preventDefault();
         setReplySent(true);

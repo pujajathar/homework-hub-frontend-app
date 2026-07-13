@@ -1,10 +1,4 @@
-.home {
-    background-image: url('../../assets/images/background.png');
-    background-position: center;
-    min-height: 100vh;
-    padding: 30px 120px;
-    background-size: cover;
-}
+
 .badge-grid {
     display: flex;
     flex-wrap: wrap;
@@ -70,8 +64,28 @@
 .motivational h2 { color: #fff;}
 .motivational-icon {margin-top: 1rem; font-size: 2rem;}
 
+/* Media query for tablets */
+@media (max-width: 900px) {
+    .badge-grid { justify-content: center; gap: 0.8rem;}
+    .badge-item { width: 80px;}
+    .badge-icon { width: 55px; height: 55px; font-size: 1.6rem;}
+    .badge-name { font-size: 0.7rem;}
+    .badge-hint { font-size: 0.9rem; text-align: center;}
+    .progress-label { font-size: 0.85rem;}
+    .motivational-icon { font-size: 1.8rem;}
+}
+
+/* Media query for Mobile */
 @media (max-width :480px) {
-    .badges-grid {gap: 0.6rem;}
+    .badge-grid { justify-content: center; gap: 0.6rem;}
     .badge-item { width: 70px;}
     .badge-icon {width: 48px; height: 48px; font-size: 1.4rem;}
+    .badge-name { font-size: 0.65rem;}
+    .badge-hint { font-size: 0.85rem; text-align: center;}
+    .progress-label {
+        flex-direction: column;
+        gap: 4px;
+        font-size: 0.8rem;
+    }
+    .motivational-icon { font-size: 1.6rem;}
 }

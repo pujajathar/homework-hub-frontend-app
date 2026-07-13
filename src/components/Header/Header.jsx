@@ -2,50 +2,58 @@ import logo from '../../assets/images/logo.png';
 import './Header.css';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
 function Header ( { role, user, setUser } ) {
 const navigate = useNavigate();
+const [menuOpen, setMenuOpen] = useState(false);
  const handleLogout = () => {
         setUser(null);
         navigate("/");
+        setMenuOpen(false);
+    }
+    const handleNavigate = (path) => {
+      navigate(path);
+      setMenuOpen(false);
     }
 
     return (
-        <header className='header'>
-            
-             <div className='img'>
-            <img src={logo} alt='AaruEdu Logo' />
+      <header className='header'>           
+        <div className='img'>
+          <img src={logo} alt='AaruEdu Logo' />
         </div>
-       <nav className="buttons">
-                   
-            
-      <button onClick={() => navigate("/")}>Home</button>
-      <button onClick={() => navigate("/aboutus")}>About Us</button>
-      {user?.role === "parent" && (
-      <button className='par'
-       onClick={() => navigate("/parents")}
-       >
-        Parents
+        <button className='hamburger'
+        onClick={() => setMenuOpen(!menuOpen)}>
+          ☰         
         </button>
-      )}
-      {user?.role === "teacher" && (
-      <button className='tech'
-       onClick={() => navigate("/teachers")}>
-        Teachers
-        </button>
-      )}
-      {user?.role === "student" && (
-      <button className='stu'
-      disabled = {user?.role !== "student"}
-      onClick={() => navigate("/students")}>
-        Students
-        </button>
-      )}
-        {user && (
-            <button onClick={handleLogout}>
-                Logout
-            </button>
+      <nav className={`buttons ${menuOpen ? "open" : ""}`}>    
+        <button onClick={() => handleNavigate("/")}>Home</button>
+        <button onClick={() => handleNavigate("/aboutus")}>About Us</button>
+        {user?.role === "parent" && (
+        <button className='par'
+        onClick={() => handleNavigate("/parents")}
+        >
+          Parents
+          </button>
         )}
-       
+        {user?.role === "teacher" && (
+        <button className='tech'
+        onClick={() => handleNavigate("/teachers")}>
+          Teachers
+          </button>
+        )}
+        {user?.role === "student" && (
+        <button className='stu'
+        disabled = {user?.role !== "student"}
+        onClick={() => handleNavigate("/students")}>
+          Students
+          </button>
+        )}
+          {user && (
+              <button onClick={handleLogout}>
+                  Logout
+              </button>
+          )}       
       </nav>
     </header>
     );

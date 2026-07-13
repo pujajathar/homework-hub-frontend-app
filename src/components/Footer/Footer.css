@@ -23,6 +23,7 @@
 .footer-links a {
     color: #193103; text-decoration: none;
 }
+.footer-links a:hover { text-decoration: underline;}
 .contact {
   display: grid;
  text-align: center;
@@ -31,7 +32,7 @@
 }
 
 /* Media query for Tablet */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .site-footer {
         padding: 1.5rem;
     }
