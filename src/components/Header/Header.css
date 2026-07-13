@@ -1,7 +1,8 @@
 
-img {
-    width: 150px;
-    border-radius: 50%;
+.img img {
+    width: 200px;
+     border-radius: 50%;
+    object-fit: cover;
 }
 .header {
     display: flex;   
@@ -23,10 +24,10 @@ img {
 .stu {background: linear-gradient(135deg, #89cafc, #7c91c0 );}
 
 .buttons button {
-     border-radius: 50px;
-     cursor: pointer;
-     padding: 7px;
-     transition: 0.2s;   
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 7px 14px;
+    transition: 0.2s ease;   
 }
 .buttons button:hover {
   transform: translate3d(0, -3px, 0);  
@@ -35,4 +36,43 @@ img {
 button:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+}
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+/*Media query for Tablets */
+@media (max-width: 900px) {
+    .header { padding: 1rem;}
+    .img { width: 100px; height: 100px;}
+    .buttons { gap: 10px; padding: 0;}
+}
+
+/*Media query for mobile */
+@media (max-width: 480px) {
+    .header {
+        position: relative;
+        padding: 1rem;
+    }
+    .img img { width: 80px; height: 80px;}
+    .hamburger { display: block;}
+    .buttons { 
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 10px;
+        width: 220px;
+        flex-direction: column;
+        gap: 10px;
+        padding: 1rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+    .buttons button { width: 100%;}
+    .buttons.open { display: flex;}
 }

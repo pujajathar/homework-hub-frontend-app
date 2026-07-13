@@ -1,11 +1,4 @@
-.home {
-    background-image: url('../../assets/images/background.png');
-    background-position: center;
-    min-height: 100vh;
-    padding: 30px 120px;
-    background-size: cover;
-  
-}
+
 .hero {
  display: grid;
  grid-template-columns: 1fr 1fr;
@@ -92,15 +85,15 @@
     font-size: 0.9rem;
     opacity: 0.9;
 }
-
+/*Media query for Mobile*/
 @media (max-width: 480px) {  
     .hero-left .tagline { font-size: 1.8rem;}
     .hero-buttons {
         flex-direction: column;
     }
 }
-
-@media (max-width: 768px) { 
+/*Media query for Tablets*/
+@media (max-width: 900px) { 
     .hero {
         grid-template-columns: 1fr;
     }

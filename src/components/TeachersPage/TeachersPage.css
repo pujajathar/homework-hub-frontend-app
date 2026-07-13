@@ -1,13 +1,7 @@
-.home {
-    background-image: url('../../assets/images/background.png');
-    background-position: center;
-    min-height: 100vh;
-    padding: 30px 120px;
-    background-size: cover;
-}
+
 .card-header{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
 }
@@ -19,17 +13,26 @@
 .assignment-row{
     display: flex;
     justify-content: space-between;
-    justify-items: center;
+    gap: 12px;
     align-items:center;
    padding: 18px;
+   width: 100%;
+   box-sizing: border-box;
+   min-width: 0;
 }
 .assignment-left{
     display: flex;
     align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
 }
 .assignment-right{
     display: flex;
     align-items: center;   
+    gap: 8px;
+    flex-shrink: 1;
+    flex-wrap: wrap;
 }
 
 .tag{
@@ -143,16 +146,33 @@
     outline: none;
     transition: border-color 0.2s;
 }
+.card, .assignment-row, .parent-message-row, .parent-message-item:last-child { min-width: 0;}
 
-@media(max-width:768px){
-    .main-grid{
-        grid-template-columns: 1fr;
-    }
-    .dashboard-header{
+/* Media query for Tablets + Mobile */
+@media(max-width: 900px){
+    .two-col { grid-template-columns: 1fr;}
+    .dashboard-header {
+    display: flex;     
+    flex-direction: column; 
+    gap: 20px;
+    align-items: center;
+    text-align: center;    
+}
+    .card { width: 100%; box-sizing: border-box; }
+    .card-header {
+     flex-direction: column;   
+     }
+     .assignment-row {
         flex-direction: column;
-        gap: 20px;
-    }
-    .card{
-        width: 100%;
-    }
+        align-items: stretch;
+   
+     }
+     .buttonspace { flex-wrap: wrap;}
+     .assignment-left, .assignment-right { width: 100%; min-width: 0;}
+     .assignment-right { justify-content: center; width: 100%;}
+     .profile { width: 100px; height: 100px;}
+     .profile img { width: 65px; height: 65px;}
+     .header-text h1 { font-size: 28px;}
+     .reply-form { flex-direction: column;}
+     .reply-form input { width: 100%; box-sizing: border-box;}
 }
