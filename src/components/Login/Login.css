@@ -1,7 +1,5 @@
 
 .login-container {
- 
-    
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -12,8 +10,6 @@ width: 380px;
 max-width: calc(100vw - 2rem);
 box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 position: relative;
-
-animation: slideup 0.2s ease-out;
 
 }
 .login-page {
@@ -44,6 +40,11 @@ animation: slideup 0.2s ease-out;
 .input-box {
     border-radius: 15px;
     padding: 0.5rem;
+}
+.error-msg {
+    color: red;
+    padding: 10px;
+    font-size: 19px;
 }
 
 

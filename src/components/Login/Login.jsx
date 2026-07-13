@@ -6,10 +6,23 @@ import "./Login.css";
 function Login ({role, setUser}) {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
-   
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const handleLogin = (e) => {
         e.preventDefault();
+        setEmail(""); //it clears old error
+        if (!email.includes("@")) {
+            setError("Please enter valid email address.")
+            return;
+        }
+        if (!email.includes(".")) {
+            setError("Please enter valid email address.")
+            return;
+        }
+        if (password.length < 6) {
+            setError ("Password must contain at least 6 characters.");
+            return;
+        }
         const user ={
             email,
             role
@@ -26,9 +39,7 @@ function Login ({role, setUser}) {
             navigate("/students");
         }
     };
-    return (
-      
-         
+    return (       
             <div className="login-page">
                   <div className="login-container">
             <h2>
@@ -36,7 +47,9 @@ function Login ({role, setUser}) {
               <span> Login </span>
             </h2>
             <p>Sign in to access your dashboard</p>
-            
+            {error && (
+                <p className="error-msg">{error}</p>
+            )}
             <form onSubmit={handleLogin}>
                 <label>Email <span>
                 <input className="input-box"
@@ -44,6 +57,7 @@ function Login ({role, setUser}) {
                 placeholder="example@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
                 /> </span>
                 </label><br /><br />
                 <label>
@@ -53,6 +67,7 @@ function Login ({role, setUser}) {
                 placeholder="********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
                 /></span> 
                 </label><br /><br />
 
@@ -62,9 +77,7 @@ function Login ({role, setUser}) {
                 </button>
             </form>
            
-            <p className="demo-text">
-                Any email & password (4+ characters) works
-            </p>
+
             </div>
        </div>
     )   
