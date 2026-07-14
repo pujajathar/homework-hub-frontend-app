@@ -181,7 +181,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
                                         onChange={e => setReplyText(e.target.value)}
                                         required
                                         />
-                                        <Button variant="green"  className="btn btn-sm" type="submit">Send</Button>
+                                        <Button variant="green"  className="btn btn-sm" type="submit" >Send</Button>
                                     </form>
                                 )
                             )}

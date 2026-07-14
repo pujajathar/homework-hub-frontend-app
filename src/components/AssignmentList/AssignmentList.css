@@ -54,7 +54,6 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-
 .delete-btn{
     color: white;
     background-color: rgb(237, 128, 128);
@@ -64,14 +63,11 @@
     cursor: pointer;
     font-weight: 600;
 }
-
 .delete-btn:hover {
     background-color: rgb(223, 97, 43);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-
-
 .buttonspace {
     display: flex;
     align-items: center;
@@ -79,6 +75,7 @@
     padding: 15px;
     gap: 1rem;
 }
+
 
 /* Media query for Tablets */
 @media (max-width: 900px) {

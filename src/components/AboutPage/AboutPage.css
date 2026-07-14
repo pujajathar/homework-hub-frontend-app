@@ -36,9 +36,7 @@
 .about-card p {     
         color: #13171f;
         font-size: 1rem; line-height: 1.6;}
-
-.team-section { margin-top: 3rem;
-}
+.team-section { margin-top: 3rem; }
 
 .team-section h2 {
     text-align: center;
@@ -49,6 +47,7 @@
 }
 .team-grid {
     display: flex;
+    align-items: center;
     justify-content: center;    
 }
 
@@ -84,11 +83,11 @@
 /*Media query for mobile*/
 @media (max-width: 480px) {
     .team-card {
-        width: 90%;
+        width: 80%;
     }
     .about-hero h1 {font-size: 1.8rem;}
 }
 /*Media query for tablet*/
-@media (max-width: 768px) {
-    .about-grid {grid-template-columns: 1fr;}
+@media (max-width: 900px) {
+    .about-grid {grid-template-columns: 1fr; justify-content: center; }
 }
