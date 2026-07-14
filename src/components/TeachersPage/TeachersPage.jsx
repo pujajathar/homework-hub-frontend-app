@@ -12,7 +12,6 @@ import Header from "../Header/Header";
 
 function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } ) {
 
-    
     const parents = [
     {id: 1, name: "Sarah Johnson", child: "Emma Johnson",lastMsgDate: "2026-07-06"},
     {id: 2, name: "Michael Smith", child: "Liam Smith", lastMsgDate: "2026-07-05"},
@@ -46,8 +45,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
             ...prev,
             {
                 ...newAssignment,
-                id: Date.now(),
-                
+                id: Date.now(), 
             }
         ]);
     }
@@ -69,7 +67,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
             <p>Welcome back, Ms. Olivia!</p> 
             </div> 
             <div className="profile">
-                <img src={teacher} alt="Teacher" />
+                <img src={teacher} alt="Teacher Image" />
                 <span>Ms. Olivia</span>
             </div>
         </header>

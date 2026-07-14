@@ -65,7 +65,7 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handle
                 ) : (       //when creating displays options of subjects
                 <label>Subject:
                 <select 
-                      name="subject"
+                    name="subject"
                     value={assignment.subject}
                     onChange={handleChange} >
                    <option value="">Select Subject:</option>
