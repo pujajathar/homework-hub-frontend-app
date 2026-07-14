@@ -73,7 +73,7 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handle
                    <option value="Science">Science</option>
                    <option value="Art">Art</option>
                    <option value="English">English</option>
-                   <option value="Social Studies">Social Studies</option>
+                   <option value="Social-Studies">Social-Studies</option>
                 </select>
                 
                 </label>

@@ -21,18 +21,15 @@ function App() {
   const [assignments, setAssignments] = useState(mockAssignments);
   const [completedAssignments, setCompletedAssignments] = useState([]);
   const ProtectedRoute = ({allowedRole, children}) => {
-    if(!user) {
+    if(!user || user.role !== allowedRole) {
       return ( <Login 
         role={allowedRole}
         setUser={setUser}
         />
       );
     }
-    if(user.role !== allowedRole){
-      return <h2>Access Denied</h2>;
-    }
     return children;
-  }
+  };
    const toggleComplete = (id) => {
         setCompletedAssignments((prev) => {
           if(prev.includes(id)) {

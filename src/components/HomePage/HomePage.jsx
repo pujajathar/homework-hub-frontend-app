@@ -7,8 +7,7 @@ import Login from "../Login/Login";
 
 function HomePage ( {setUser} ) {
  const navigate = useNavigate();
- const[showLogin, setShowLogin] = useState(false);
- const [selectedRole, setSelectedRole] = useState("");
+
 return (
    <div className="home">
  <div className="page">
@@ -31,8 +30,6 @@ return (
      
     <div className="role-card parent" onClick={() => {
       navigate("/parents")
-      setSelectedRole("parent");
-      setShowLogin(true);
     }}>
       <div className="role-icon">👨‍👩‍👧‍👦</div>
       <h3>Parent</h3>
@@ -40,8 +37,6 @@ return (
    </div>
    <div className="role-card teacher" onClick={() => {
       navigate("/teachers");
-      setSelectedRole("teacher");
-      setShowLogin(true);
    }}>
       <div className="role-icon">👩‍🏫 </div>
       <h3>Teacher</h3>
@@ -49,8 +44,6 @@ return (
    </div>
    <div className="role-card student" onClick={() => {
       navigate("/students");
-         setSelectedRole("student");
-      setShowLogin(true);
    }}>
       <div className="role-icon">🧑‍🎓</div> 
       <h3>Student</h3>
@@ -59,13 +52,6 @@ return (
  </div> 
  </section>  
 </div>
-{showLogin &&
-<Login 
-role={selectedRole}
-setUser={setUser}
-setShowLogin={setShowLogin}
-/>
-}
 </div>     
 );
 }

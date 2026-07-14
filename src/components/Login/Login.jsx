@@ -10,7 +10,7 @@ function Login ({role, setUser}) {
     const [error, setError] = useState("");
     const handleLogin = (e) => {
         e.preventDefault();
-        setEmail(""); //it clears old error
+        setError(""); //it clears old error
         if (!email.includes("@")) {
             setError("Please enter valid email address.")
             return;
