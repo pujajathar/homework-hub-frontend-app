@@ -37,8 +37,31 @@
 
 .input-box {
     border-radius: 15px;
-    padding: 0.5rem;
-    width: auto;
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: 12px;    
+}
+.input-group {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+.wave {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+}
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg);}
+    50% { transform: rotate(15deg);}
 }
 .error-msg {
     color: red;

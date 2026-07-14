@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login ({role, setUser}) {
+    const roleEmoji = { teacher: "👩‍🏫" , student: "👩‍🎓", parent: "👨‍👩‍👧‍👦"};
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -42,8 +43,9 @@ function Login ({role, setUser}) {
     return (       
         <div className="login-page">
             <div className="login-container">
+                <h1>Welcome back! <span className="wave">👋</span></h1>
                 <h2>
-                    {role ? role.charAt(0).toUpperCase() + role.slice(1) : "User"}
+                {roleEmoji[role]}{role ? role.charAt(0).toUpperCase() + role.slice(1) : "User"}
                 <span> Login </span>
                 </h2>
                 <p>Sign in to access your dashboard</p>
@@ -51,26 +53,28 @@ function Login ({role, setUser}) {
                     <p className="error-msg">{error}</p>
                 )}
                 <form onSubmit={handleLogin}>
-                    <label>Email <span>
+                    <div className="input-group" >
+                    <label htmlFor="email">Email</label>
                     <input className="input-box"
-                    type="email"
-                    placeholder="example@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    /> </span>
-                    </label><br /><br />
-                    <label>
-                    Password  <span>
+                        id="email"
+                        type="email"
+                        placeholder="example@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    /> 
+                   </div>
+                   <div className="input-group">
+                    <label>Password </label>                    
                     <input className="input-box"
-                    type="password"
-                    placeholder="********"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    /></span> 
-                    </label><br /><br />
-
+                        type="password"
+                        id="password"
+                        placeholder="********"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                   </div>
                     <button className={`submitbtn ${role}-btn`} 
                     type="submit">
                         Sign in as {role ? role.charAt(0).toUpperCase() + role.slice(1) : "User"}
