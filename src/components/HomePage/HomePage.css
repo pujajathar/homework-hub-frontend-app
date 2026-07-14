@@ -40,13 +40,15 @@
 }
 /* Floating animation for school emoji*/
 @keyframes fadeZoom {
-    from { opacity: 0; transform: scale(0.5);}
-    to { opacity: 1; transform: scale(1);}
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1);
+    }
 }
 @keyframes schoolFloat {
-    0%, 100% { transform: translateY(0);}
-    50% { transform: translateY(-12px);}
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
+
 .role-selction {
     margin-top: 3rem;
 }
