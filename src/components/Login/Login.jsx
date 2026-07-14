@@ -40,44 +40,42 @@ function Login ({role, setUser}) {
         }
     };
     return (       
-            <div className="login-page">
-                  <div className="login-container">
-            <h2>
-                 {role ? role.charAt(0).toUpperCase() + role.slice(1) : "User"}
-              <span> Login </span>
-            </h2>
-            <p>Sign in to access your dashboard</p>
-            {error && (
-                <p className="error-msg">{error}</p>
-            )}
-            <form onSubmit={handleLogin}>
-                <label>Email <span>
-                <input className="input-box"
-                type="email"
-                placeholder="example@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                /> </span>
-                </label><br /><br />
-                <label>
-                Password  <span>
-               <input className="input-box"
-                type="password"
-                placeholder="********"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                /></span> 
-                </label><br /><br />
+        <div className="login-page">
+            <div className="login-container">
+                <h2>
+                    {role ? role.charAt(0).toUpperCase() + role.slice(1) : "User"}
+                <span> Login </span>
+                </h2>
+                <p>Sign in to access your dashboard</p>
+                {error && (
+                    <p className="error-msg">{error}</p>
+                )}
+                <form onSubmit={handleLogin}>
+                    <label>Email <span>
+                    <input className="input-box"
+                    type="email"
+                    placeholder="example@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    /> </span>
+                    </label><br /><br />
+                    <label>
+                    Password  <span>
+                    <input className="input-box"
+                    type="password"
+                    placeholder="********"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    /></span> 
+                    </label><br /><br />
 
-                <button className={`submitbtn ${role}-btn`} 
-                type="submit">
-                    Sign in as {role ? role.charAt(0).toUpperCase() + role.slice(1) : "User"}
-                </button>
-            </form>
-           
-
+                    <button className={`submitbtn ${role}-btn`} 
+                    type="submit">
+                        Sign in as {role ? role.charAt(0).toUpperCase() + role.slice(1) : "User"}
+                    </button>
+                </form>
             </div>
        </div>
     )   

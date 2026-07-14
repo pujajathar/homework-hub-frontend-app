@@ -35,7 +35,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 6rem;
+    font-size: 14rem;
+    animation: fadeZoom 1s ease-out, schoolFloat 3s ease-in-out 1s infinite;
+}
+/* Floating animation for school emoji*/
+@keyframes fadeZoom {
+    from { opacity: 0; transform: scale(0.5);}
+    to { opacity: 1; transform: scale(1);}
+}
+@keyframes schoolFloat {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-12px);}
 }
 .role-selction {
     margin-top: 3rem;

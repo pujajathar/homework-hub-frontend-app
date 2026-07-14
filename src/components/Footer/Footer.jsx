@@ -7,7 +7,7 @@ function Footer() {
         <footer className="site-footer">
             <div className='footer-inner'>
             <p>
-                @copy; {year} <span>AaruEdu Homework Hub.</span> 🌈 Learn. Grow. Achieve.
+                @copy ; {year} <span>AaruEdu Homework Hub.</span> 🌈 Learn. Grow. Achieve.
             </p>
             <nav className='footer-links'>
             <a 
