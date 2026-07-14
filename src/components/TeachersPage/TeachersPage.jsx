@@ -18,6 +18,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
     {id: 2, name: "Michael Smith", child: "Liam Smith", lastMsgDate: "2026-07-05"},
     { id: 3, name: "Jessica Brown", child: "Olivia Brown", lastMsgDate: "2026-07-07"}
     ];
+    
     const [showForm, setShowForm] = useState(false);
     const [editAssignments, setEditAssignments] = useState(null);
     const [replyId, setReplyId] = useState(null); //to reply to parents
@@ -65,11 +66,11 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
         <header className="dashboard-header">          
             <div className="header-text">
             <h1>Teacher Dashboard</h1>
-            <p>Welcome back, Ms. Leah!</p> 
+            <p>Welcome back, Ms. Olivia!</p> 
             </div> 
             <div className="profile">
                 <img src={teacher} alt="Teacher" />
-                <span>Ms. Leah</span>
+                <span>Ms. Olivia</span>
             </div>
         </header>
 

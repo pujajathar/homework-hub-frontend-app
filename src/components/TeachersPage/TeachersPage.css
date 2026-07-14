@@ -100,7 +100,15 @@
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+} 
+/*Floating animation for teacher's image*/
+@keyframes float {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-8px);}
 }
+.profile img:hover { transform: scale(1.1) rotate(5deg);}
 .profile span{
     font-size: 18px;
     font-weight: 600;
