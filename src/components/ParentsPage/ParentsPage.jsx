@@ -11,8 +11,8 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUs
     const [data, setData] = useState({
         subject:"",
         message:""
-     });
-     const navigate = useNavigate();
+    });
+    const navigate = useNavigate();
     const [submitted, setSubmitted] = useState(false);
     const completed = completedAssignments.length;
     const pending = assignments.length - completed;
@@ -32,13 +32,13 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUs
             [name]:value
         }))
     };
- useEffect(() => {   //success message disappears after set time
+    useEffect(() => {   //success message disappears after set time
     if(submitted) {
         const timer = setTimeout(() => {
         setSubmitted(false);
-        }, 2000);
+    }, 2000);
     return () => clearTimeout(timer);
- }
+    }
 }, [submitted]);
 
     const handleSubmit = (e) => {
@@ -50,9 +50,8 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUs
                 message:""
         })
     }
- return (
+return (
     <div className="home">
-
        <div className="page">
         <header className="dashboard-header">
             <h1>👨‍👩‍👧 Parent Dashboard</h1>
@@ -88,6 +87,7 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUs
             completedAssignments={completedAssignments}
             />
             </section>
+
             <div>  {/*Progress section */}
                 <section className="card">
                     <h2>📊 Progress</h2>
@@ -100,7 +100,7 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUs
                         </div>                          
                             <p className="progress-note">{completed} of {assignments.length} assignments completed this week.</p>
                 </section>
-          
+
                 <section className="card">
                 <h2>💬 Messages from Teachers</h2>
                 <ul className="message-list">
@@ -120,10 +120,21 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUs
            <section className="card">
                 <label>📨 Contact Teacher:</label><br /><br />
                 <form className="contact-form" onSubmit={handleSubmit}>  
-                <input type="text" name="subject" value={data.subject} onChange={handleChange} placeholder="Subject"/>
+                <input type="text" 
+                name="subject" 
+                value={data.subject} 
+                onChange={handleChange} 
+                placeholder="Subject"
+                required
+                />
                  
-                <textarea name="message" value={data.message} maxLength={200} onChange={handleChange} 
-                    placeholder="Message...."/>
+                <textarea name="message" 
+                value={data.message} 
+                maxLength={200} 
+                onChange={handleChange} 
+                placeholder="Message...."
+                required
+                />
                    
                 <Button variant="yellow" type="submit">Send Message</Button>
                 </form>

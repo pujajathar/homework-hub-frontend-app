@@ -52,8 +52,8 @@ function AssignmentList ({
                 </div>  
             ))}
         </div> 
-            );
-        };
+    );
+};
         export default AssignmentList;
         
             
