@@ -29,7 +29,7 @@ return (
     </div>
     <div className="about-card">
         <div className="about-icon">🌱</div>
-        <h3>Our vision</h3>
+        <h3>Our Vision</h3>
         <p>
             Our vision is to create a future where every elementary school family has an easy and reliable way to stay engaged in their child's education.<br/>
             We aspire to strengthen the partnership between home and school by reducing missed assignments, improving collaboration, and making homework management
