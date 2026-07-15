@@ -30,16 +30,16 @@ function App() {
     }
     return children;
   };
-   const toggleComplete = (id) => {
-        setCompletedAssignments((prev) => {
-          if(prev.includes(id)) {
-            return prev.filter((assignmentId) => assignmentId !== id);
-          }
-          return [...prev, id];
+  const toggleComplete = (id) => { //handles marking an assignment as complete or incomplete
+      setCompletedAssignments((prev) => {
+        if(prev.includes(id)) {
+          return prev.filter((assignmentId) => assignmentId !== id);
+        }
+        return [...prev, id];
     });
   };
-      const handleDelete = (id) => {     
-        setAssignments((prev) => prev.filter((assignment) => assignment.id !== id));
+  const handleDelete = (id) => {    /* deletes assignment */ 
+    setAssignments((prev) => prev.filter((assignment) => assignment.id !== id));
     };
 
  return (

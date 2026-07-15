@@ -102,8 +102,7 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handle
                 </button>
                 <button type="button" onClick={onCancel}>
                     Cancel
-                </button>
-                    
+                </button>                   
             </form>
 
 

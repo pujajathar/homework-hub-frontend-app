@@ -23,25 +23,25 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
     const [replyId, setReplyId] = useState(null); //to reply to parents
     const [replyText, setReplyText] = useState("");
     const [replySent, setReplySent] = useState(false);
-     const navigate = useNavigate();
+    const navigate = useNavigate();
    const handleLogout = () => {
         setUser(null);
         navigate("/");
     } 
-    const handleEdit = (id) => {
+    const handleEdit = (id) => {  /* opens form to edit/modify assignmet */
         const assignment = assignments.find((item) => item.id === id);
         setEditAssignments(assignment);
         setShowForm(true);
     };
-   const handleAddAssignment = (newAssignment) => {
-    if(editAssignments) {  //updates existing assignment
+   const handleAddAssignment = (newAssignment) => { //handles adding new assignment
+    if(editAssignments) {  
      setAssignments(prev => 
         prev.map(item => 
             item.id === newAssignment.id ? newAssignment : item
         )
     );
     } else {
-        setAssignments(prev => [   //adds new assignment
+        setAssignments(prev => [  
             ...prev,
             {
                 ...newAssignment,
@@ -170,7 +170,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
                                 Reply
                                 </button>
                             </div>
-                            {replyId === p.id && (
+                            {replyId === p.id && (  //conditional rendering interactive feature-display reply section
                                 replySent? (
                                     <p className="reply-sent">✅ Reply Sent</p>
                                 ) : (
