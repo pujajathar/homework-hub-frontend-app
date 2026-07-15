@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { mockAssignments } from "./mockData";
+import { mockAssignments } from "../mockData";
+import "./AssignmentForm.css";
 
 
 function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handleDelete}) { //assignment propery passing from teachers page
@@ -50,9 +51,9 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handle
    
     return (
 
-        <div>
+        <div className="assignmet-form-container">
             <h2>{editAssignment ? "Update Assignment" : "Create Assignment"}</h2> {/*changes title of form when editing or creating */}
-            <form onSubmit={handleSubmit}>
+            <form className="assignment-form" onSubmit={handleSubmit}>
                           {/* When editing assignments displays only selected assignment name */}
                 {isEditing ? (       
                     <input 
@@ -74,11 +75,10 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handle
                    <option value="Art">Art</option>
                    <option value="English">English</option>
                    <option value="Social-Studies">Social-Studies</option>
-                </select>
-                
+                </select>                
                 </label>
                 )}
-                <br /><br />
+               
                 <label>Title:
                     <input type="text"
                     name="title"
@@ -87,25 +87,24 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handle
                     placeholder="Title of Assignment..."
                     required
                     />
-                </label><br /><br />
+                </label>
                 <label>dueDate:
                     <input type="date"
                     name="dueDate"
                     value={assignment.dueDate}
                     onChange={handleChange}
                     required
-                    /><br /><br />
+                    />
                 </label>
-               
-                <button type="submit">      {/* button text changes depending on editing or creating */}
+            <div className="button-group">  
+                <button className="submit-btn" type="submit">      {/* button text changes depending on editing or creating */}
                     {editAssignment? "Update Assignment" : "Create Assignment"}
                 </button>
-                <button type="button" onClick={onCancel}>
+                <button className="cancel-btn" type="button" onClick={onCancel}>
                     Cancel
-                </button>                   
+                </button> 
+            </div>                       
             </form>
-
-
         </div>
     );
 };
