@@ -12,17 +12,17 @@ import Header from "../Header/Header";
 
 function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } ) {
 
-    const parents = [
+    const parents = [   //mock parent data used to display parent messages
     {id: 1, name: "Sarah Johnson", child: "Emma Johnson",lastMsgDate: "2026-07-06"},
     {id: 2, name: "Michael Smith", child: "Liam Smith", lastMsgDate: "2026-07-05"},
     { id: 3, name: "Jessica Brown", child: "Olivia Brown", lastMsgDate: "2026-07-07"}
     ];
     
-    const [showForm, setShowForm] = useState(false);
-    const [editAssignments, setEditAssignments] = useState(null);
-    const [replyId, setReplyId] = useState(null); //to reply to parents
-    const [replyText, setReplyText] = useState("");
-    const [replySent, setReplySent] = useState(false);
+    const [showForm, setShowForm] = useState(false); //controls whether the assignment form is visible
+    const [editAssignments, setEditAssignments] = useState(null); //stores assignments currently being edited
+    const [replyId, setReplyId] = useState(null); //stores which parent reply section is open
+    const [replyText, setReplyText] = useState(""); //stores reply message text
+    const [replySent, setReplySent] = useState(false); //controls reply success message display
     const navigate = useNavigate();
    const handleLogout = () => {
         setUser(null);
@@ -30,18 +30,18 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
     } 
     const handleEdit = (id) => {  /* opens form to edit/modify assignmet */
         const assignment = assignments.find((item) => item.id === id);
-        setEditAssignments(assignment);
+        setEditAssignments(assignment); //stores assignment data & opens form
         setShowForm(true);
     };
    const handleAddAssignment = (newAssignment) => { //handles adding new assignment
-    if(editAssignments) {  
+    if(editAssignments) {  //if editing, replace existing assignment
      setAssignments(prev => 
         prev.map(item => 
             item.id === newAssignment.id ? newAssignment : item
         )
     );
     } else {
-        setAssignments(prev => [  
+        setAssignments(prev => [  //if creating new assignment, add it to list
             ...prev,
             {
                 ...newAssignment,
@@ -49,13 +49,13 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
             }
         ]);
     }
-    setEditAssignments(null);
+    setEditAssignments(null); //reset form after saving
     setShowForm(false);
    }   
     const handleReply = (e) => {  //reply to parents
         e.preventDefault();
-        setReplySent(true);
-        setReplyText("");
+        setReplySent(true);  //shows reply sent message
+        setReplyText("");   //clears reply input
         setTimeout(() => {setReplySent(false); setReplyId(null); }, 2000); //hides success msg after 2 seconds
     }
     return (      
@@ -78,7 +78,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
                 <div className="stat-label">Assignments</div>
             </div>
             <div className="stat-card">
-                <div className="stat-num green">{mockStudents.length}</div>
+                <div className="stat-num green">{mockStudents.length}</div> {/* Total students */}
                 <div className="stat-label">Students</div>
             </div>
             <div className="stat-card">
@@ -107,7 +107,7 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
                 + Create New
                 </button>
                   </div>
-                  {showForm && (
+                  {showForm && (  
             <AssignmentForm 
             assignment={editAssignments}
             onSubmit={handleAddAssignment}

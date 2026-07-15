@@ -25,7 +25,7 @@ function StudentsPage ({ assignments, toggleComplete, completedAssignments, setU
                 <h1>🧑‍🎓 Student Dashboard</h1>
                 <p>Hey, <strong>{mockStudent.name}</strong>! You're in {mockStudent.grade} with {mockTeacher.name}⭐</p>
             </header>
-
+            {/* Dashboard statistics cards */}
             <section className="stats-row">
                 <div className="stat-card">
                     <div className="stat-num">{total}</div>
@@ -45,14 +45,14 @@ function StudentsPage ({ assignments, toggleComplete, completedAssignments, setU
                 </div>
             </section>
             <div className="two-col">
-                <section className="card">
+                <section className="card"> {/* Homework assignment list */}
                     <h2>📚🎯 My Homework</h2>
                     <AssignmentList 
                     assignments={assignments}
                     toggleComplete={toggleComplete}
                     completedAssignments={completedAssignments}
                     />
-                    <div className="progress-section">
+                    <div className="progress-section">  
                         <div className="progress-label">
                             <span>Weekly Progress</span>
                             <strong>{progressPct}%</strong>
@@ -84,7 +84,7 @@ function StudentsPage ({ assignments, toggleComplete, completedAssignments, setU
                             You have completed <strong>{completed} out of {total}</strong> assignments this week.<br />
                             {completed === total ? ' Amazing - well done! 🎉' : ` Just ${total - completed} more to go. You have got this! 🚀`}
                         </p>
-                        <div className="motivational-icon">
+                        <div className="motivational-icon"> {/* Displays emoji based on progress */}
                             {progressPct >= 80 ? '👏' : progressPct >= 50 ? '🌱' : '📈'}
                         </div>
                     </section>

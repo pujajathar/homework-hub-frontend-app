@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login ({role, setUser}) {
-    const roleEmoji = { teacher: "👩‍🏫" , student: "👩‍🎓", parent: "👨‍👩‍👧‍👦"};
-    const navigate = useNavigate();
+    const roleEmoji = { teacher: "👩‍🏫" , student: "👩‍🎓", parent: "👨‍👩‍👧‍👦"}; //emoji icons for user role
+    const navigate = useNavigate(); //navigation to diff. pages without refreshing 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const handleLogin = (e) => {
-        e.preventDefault();
+    const handleLogin = (e) => {   
+        e.preventDefault();   //prevents browser from refreshing page
         setError(""); //it clears old error
         if (!email.includes("@")) {
             setError("Please enter valid email address.")
@@ -24,11 +24,11 @@ function Login ({role, setUser}) {
             setError ("Password must contain at least 6 characters.");
             return;
         }
-        const user ={
+        const user ={  //creates user object after successful validation
             email,
             role
         };
-        setUser(user);
+        setUser(user); //sends logged-in user info to parent component 
         
         if(role === "teacher"){
             navigate("/teachers");
@@ -44,15 +44,15 @@ function Login ({role, setUser}) {
         <div className="login-page">
             <div className="login-container">
                 <h1>Welcome back! <span className="wave">👋</span></h1>
-                <h2>
+                <h2>      {/* display role-emoji and role name dynamically*/}
                 {roleEmoji[role]}{role ? role.charAt(0).toUpperCase() + role.slice(1) : "User"}
                 <span> Login </span>
                 </h2>
                 <p>Sign in to access your dashboard</p>
-                {error && (
+                {error && (   
                     <p className="error-msg">{error}</p>
                 )}
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleLogin}>   {/* Login form */}
                     <div className="input-group" >
                     <label htmlFor="email">Email</label>
                     <input className="input-box"
