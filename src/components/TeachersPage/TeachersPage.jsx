@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { mockAssignments, mockStudents } from "../mockData";
-import AssignmentForm from "../AssignmentForm";
+import AssignmentForm from "../AssignmentForm/AssignmentForm";
 import Footer from "../Footer/Footer";
 import Button from "../Button/Button";
 import teacher from "../../assets/images/teacher.png";
