@@ -22,6 +22,14 @@ const [menuOpen, setMenuOpen] = useState(false);
         <div className='img'>
           <img src={logo} alt='AaruEdu Logo' />
         </div>
+        <h1 key={user ?.role}>  {/*recreates the h1 element to make css animation run again whenever user's role changes */}
+          <span className='word1'>Aaru</span>
+          <span className='word2'>E</span>
+          <span className='word3'>d</span>
+          <span className='word4'>u</span>  
+          {" - "} 
+          <span className='word5'>Homework Hub</span>
+          </h1>
         <button className='hamburger'
         onClick={() => setMenuOpen(!menuOpen)}>
           ☰         

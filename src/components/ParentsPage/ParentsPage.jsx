@@ -117,7 +117,7 @@ return (
                 </ul>
             </section>
 
-           <section className="card">
+           <section className="card">  {/* contact form allow parents to send message to teachers */}
                 <label>📨 Contact Teacher:</label><br /><br />
                 <form className="contact-form" onSubmit={handleSubmit}>  
                 <input type="text" 
@@ -126,16 +126,14 @@ return (
                 onChange={handleChange} 
                 placeholder="Subject"
                 required
-                />
-                 
+                />                
                 <textarea name="message" 
                 value={data.message} 
                 maxLength={200} 
                 onChange={handleChange} 
                 placeholder="Message...."
                 required
-                />
-                   
+                />                  
                 <Button variant="yellow" type="submit">Send Message</Button>
                 </form>
                 {submitted && (<p className="success-message">✅ Message has been sent successfully!</p>)}
