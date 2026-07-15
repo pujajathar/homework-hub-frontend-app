@@ -6,13 +6,13 @@ import { useState } from 'react';
 
 function Header ( { role, user, setUser } ) {
 const navigate = useNavigate();
-const [menuOpen, setMenuOpen] = useState(false);
- const handleLogout = () => {
+const [menuOpen, setMenuOpen] = useState(false); //controls whether hamburger menu is open or closed
+ const handleLogout = () => {    //clears user data and return to homepage after logout
         setUser(null);
         navigate("/");
         setMenuOpen(false);
     }
-    const handleNavigate = (path) => {
+    const handleNavigate = (path) => { //Handles navigation and closes mobile menu after clicking a link
       navigate(path);
       setMenuOpen(false);
     }
@@ -20,9 +20,9 @@ const [menuOpen, setMenuOpen] = useState(false);
     return (
       <header className='header'>           
         <div className='img'>
-          <img src={logo} alt='AaruEdu Logo' />
+          <img src={logo} alt='AaruEdu Logo' />  {/* website logo*/}
         </div>
-        <h1 key={user ?.role}>  {/*recreates the h1 element to make css animation run again whenever user's role changes */}
+        <h1 key={user?.role}>  {/*recreates the h1 element to make css animation run again whenever user's role changes */}
           <span className='word1'>Aaru</span>
           <span className='word2'>E</span>
           <span className='word3'>d</span>
@@ -30,11 +30,11 @@ const [menuOpen, setMenuOpen] = useState(false);
           {" - "} 
           <span className='word5'>Homework Hub</span>
           </h1>
-        <button className='hamburger'
-        onClick={() => setMenuOpen(!menuOpen)}>
+        <button className='hamburger'  
+        onClick={() => setMenuOpen(!menuOpen)}>  {/* Mobile hamburger menu button */}
           ☰         
         </button>
-      <nav className={`buttons ${menuOpen ? "open" : ""}`}>    
+      <nav className={`buttons ${menuOpen ? "open" : ""}`}>    {/* navigation menu */}
         <button onClick={() => handleNavigate("/")}>Home</button>
         <button onClick={() => handleNavigate("/aboutus")}>About Us</button>
         {user?.role === "parent" && (
@@ -57,7 +57,8 @@ const [menuOpen, setMenuOpen] = useState(false);
           Students
           </button>
         )}
-          {user && (
+        {/*  Shows logout button only when user is logged in*/}
+          {user && ( 
               <button onClick={handleLogout}>
                   Logout
               </button>

@@ -50,7 +50,6 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handle
     };
    
     return (
-
         <div className="assignmet-form-container">
             <h2>{editAssignment ? "Update Assignment" : "Create Assignment"}</h2> {/*changes title of form when editing or creating */}
             <form className="assignment-form" onSubmit={handleSubmit}>

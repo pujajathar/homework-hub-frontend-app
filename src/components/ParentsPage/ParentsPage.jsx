@@ -8,25 +8,25 @@ import Button from "../Button/Button";
 
 function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUser }) {
   
-    const [data, setData] = useState({
+    const [data, setData] = useState({  //stores contact form input values
         subject:"",
         message:""
     });
     const navigate = useNavigate();
-    const [submitted, setSubmitted] = useState(false);
-    const completed = completedAssignments.length;
+    const [submitted, setSubmitted] = useState(false); //tracks whether the contact form submitted successfully
+    const completed = completedAssignments.length;   //calculates assignment statistics
     const pending = assignments.length - completed;
-    const progressPct = assignments.length > 0 ? Math.round(( completed / assignments.length) * 100 ) : 0;
-    const unread = mockMessages.filter(m => !m.read).length;
-    const handleLogout = () => {
+    const progressPct = assignments.length > 0 ? Math.round(( completed / assignments.length) * 100 ) : 0; //completion pct for progress bar
+    const unread = mockMessages.filter(m => !m.read).length; //counts unread teacher messages
+    const handleLogout = () => {  //logs the user out and return to homepage.
         setUser(null);
         navigate("/");
     }
-    const handleChange = (e) => {
+    const handleChange = (e) => {  //updates form fields as user types
          
-    const {name, value} = e.target;
+    const {name, value} = e.target; //extracts input's name and value
         setSubmitted(false);  //message disappears after user starts typing
-        setData((prevData)  => 
+        setData((prevData)  =>  //updates only the changed field
         ({   
             ...prevData,
             [name]:value
@@ -34,16 +34,16 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUs
     };
     useEffect(() => {   //success message disappears after set time
     if(submitted) {
-        const timer = setTimeout(() => {
+        const timer = setTimeout(() => {  //starts a timer when form is submitted
         setSubmitted(false);
     }, 2000);
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timer);  //clears timer if the component unmount
     }
 }, [submitted]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) => { //handles contact form submission
         e.preventDefault();
-        setSubmitted(true); //marks the form submitted
+        setSubmitted(true); //displays success message
         setData 
         ({              //resets state after submitting form/name and message are cleared and ready for new message
                 subject:"",
@@ -57,7 +57,7 @@ return (
             <h1>👨‍👩‍👧 Parent Dashboard</h1>
             <p>Welcome back, <strong>{mockParent.name}</strong> - tracking {mockParent.child} ({mockParent.grade})</p>
         </header>
-
+            {/* Dashboard statistics cards */}
             <section className="stats-row">
             <div className="stat-card">
                 <div className="stat-num">{assignments.length}</div>
@@ -77,7 +77,7 @@ return (
             </div>
             </section>
 
-            <div className="two-col">      
+            <div className="two-col">     {/* Main dashboard content */} 
             <section className="card">
                 <h2>📝 {mockParent.child}'s Assignments</h2>
              {/* Assignment list component displays list of assignment */}
@@ -88,7 +88,7 @@ return (
             />
             </section>
 
-            <div>  {/*Progress section */}
+            <div>  {/* Student Progress section */}
                 <section className="card">
                     <h2>📊 Progress</h2>
                     <div className="progress-label">
