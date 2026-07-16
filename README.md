@@ -11,6 +11,14 @@ AaruEdu- Homework Hub provides a role-based dashboard system where users can acc
 - Students can view assignments, mark them completed, track progress, earn badges based on progress, and receive motivational feedback. 
 ---
 ## ✨ Features:
+### 🏠 Home Page:
+- Introduces AaruEdu and it's purpose.
+- Provides easy naviagtion to different dashboards.
+- Creates welcoming impression for users.
+### 🏫 About Us Page:
+- Explains the AaruEdu mission and vision.
+- Describes how the platform supports parents, teachers and students.
+- Showcases the educational goals of the application.
 ### 👤 Login System:
 - Role-based login for:
    - Parents
