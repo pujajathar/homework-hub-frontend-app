@@ -1,1 +1,78 @@
-##React + Vite
+# 📚 AaruEdu - Homework Hub for Elementary Schools 🏫
+AaruEdu is React-based homework management platform designed to connect elementary scools, parents, teachers and students. The application helps parents and students track assignments, view progress, earn badges, allows teachers to manage homework, and enables communication between parents and teachers.
+
+### 👨‍💻 Developer: Puja
+### 📅 Date: July 2026
+---
+## 🚀 Project Overview
+AaruEdu- Homework Hub provides a role-based dashboard system where users can access different features based on their role:
+- Parents can track assignments, mark them completed, monitor child's progress and communicate with teachers.
+- Teachers can create, edit and delete assignments, view students progress, communicate with parents. 
+- Students can view assignments, mark them completed, track progress, earn badges based on progress, and receive motivational feedback. 
+---
+## ✨ Features:
+### 👤 Login System:
+- Role-based login for:
+   - Parents
+   - Teachers
+   - students
+- Email and Password validation.
+- User logout functionality.
+### 👨‍👩‍👧‍👦 Parent Dashboard:
+- View child's assignments.
+- Mark them completed.
+- Monitor progress.
+- Contact teachers.
+### 👩‍🏫 Teacher Dashboard:
+- Create new assignments.
+- Edit existing assignments.
+- Delete assignments.
+- View student progress.
+- Reply to parents messages.
+### 🧑‍🎓 Student Dashboard:
+- View homework assignments.
+- Track completed and pending assignments.
+- View weekly progress.
+- Earn badges.
+- Receive motivational feedback.
+---
+## 🛠️ Technologies used:
+### Frontend: 
+- React
+- JavaScript
+- CSS
+- React Router
+- Vite
+- Vitest
+- Git & GitHub
+---
+### 🧪 Testing  
+Unit tests were written using Vitest(Testing Framework). 
+
+- Tested:
+   - Component rendering
+   - Page content  
+- Run tests:    
+```bash 
+npm test
+```
+---
+## 🌱 Future Improvements:
+
+   🚀 Connect to backend database         
+   🚀 Add real authentication             
+   🚀 Add teacher-parent notifications                    
+   🚀 Dynamically display badges            
+   🚀 Assignment management for multiple children on parent dashboard                
+
+
+
+
+---
+## 📖 Documentation
+### Development progress can be found in:    
+📄 **`CHANGELOG.md`** 📄
+---
+
+
+
