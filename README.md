@@ -1,5 +1,5 @@
 # 📚 AaruEdu - Homework Hub for Elementary Schools 🏫
-AaruEdu is React-based homework management platform designed to connect elementary scools, parents, teachers and students. The application helps parents and students track assignments, view progress, earn badges, allows teachers to manage homework, and enables communication between parents and teachers.
+AaruEdu is React-based homework management platform designed to connect elementary schools, parents, teachers and students. The application helps parents and students track assignments, view progress, earn badges, allows teachers to manage homework, and enables communication between parents and teachers.
 
 ### 👨‍💻 Developer: Puja
 ### 📅 Date: July 2026
@@ -12,8 +12,8 @@ AaruEdu- Homework Hub provides a role-based dashboard system where users can acc
 ---
 ## ✨ Features:
 ### 🏠 Home Page:
-- Introduces AaruEdu and it's purpose.
-- Provides easy naviagtion to different dashboards.
+- Introduces AaruEdu and its purpose.
+- Provides easy navigation to different dashboards.
 - Creates welcoming impression for users.
 ### 🏫 About Us Page:
 - Explains the AaruEdu mission and vision.
@@ -23,7 +23,7 @@ AaruEdu- Homework Hub provides a role-based dashboard system where users can acc
 - Role-based login for:
    - Parents
    - Teachers
-   - students
+   - Students
 - Email and Password validation.
 - User logout functionality.
 ### 👨‍👩‍👧‍👦 Parent Dashboard:
@@ -54,8 +54,20 @@ AaruEdu- Homework Hub provides a role-based dashboard system where users can acc
 - Vitest
 - Git & GitHub
 ---
-### 🧪 Testing  
-Unit tests were written using Vitest(Testing Framework). 
+## 🖥️ Application Preview: 
+### Home Page:
+![Home Page](./public/screenshots/homepage.png)
+### About Us: 
+![About Us](./public/screenshots/aboutus.png)
+### Parent Dashboard:
+![Parent Dashboard](./public/screenshots/parentdashboard1.png)
+### Teacher dashboard:
+![Teacher Dashboard](./public/screenshots/teacherdashboard.png)
+### Student Dashboard:
+![Student Dashboard](./public/screenshots/studentdashboard.png)
+--- 
+## 🧪 Testing  
+Unit tests were written using Vitest (Testing Framework). 
 
 - Tested:
    - Component rendering
