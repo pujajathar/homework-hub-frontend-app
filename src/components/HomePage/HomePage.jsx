@@ -4,6 +4,8 @@ import './HomePage.css';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Login from "../Login/Login";
+import home from "../../assets/images/home.JPG";
+
 
 function HomePage ( {setUser} ) {
  const navigate = useNavigate();
@@ -20,7 +22,9 @@ return (
             It is designed by parents and educators to make homework management simple and organized.
             </p>
          </div>
-      <div className="hero-image">🏫</div>
+      <div className="hero-image">
+         <img src={home} alt="home page image" />
+      </div>
       </section>
       <section className="role-selection">
          <h2>Choose your role to get started</h2>
