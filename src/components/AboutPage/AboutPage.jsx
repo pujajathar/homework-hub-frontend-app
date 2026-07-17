@@ -52,7 +52,7 @@ return (
         <div className="team-grid">            
                 <div className="team-card">
                     <div className="team-avatar">👩‍💼</div>
-                    <h3>Puja Jathar</h3>
+                    <h3>Puja J</h3>
                     <h4>Founder & Lead Developer</h4>
                     <p>
                         Leading the vision of AaruEdu and creating tools that help students, parents, and teachers 
