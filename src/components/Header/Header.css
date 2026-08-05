@@ -18,8 +18,11 @@
     gap: 50px;
     background-color: rgb(224, 169, 240);
 }
+
 .header h1 {
     flex: 2;
+    max-width: 100%;
+    overflow-wrap: break-word;
     text-align: center;
     margin: 0;
     font-weight: 800;
