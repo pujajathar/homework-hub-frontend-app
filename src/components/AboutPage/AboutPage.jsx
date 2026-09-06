@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import './AboutPage.css';
 function AboutPage () {
-    const team = [
-        {name: "Puja Jathar", role: "Founder & Lead Developer", emoji:"👩‍💼"},
-    ];
 
 return (
 <div className="home">  

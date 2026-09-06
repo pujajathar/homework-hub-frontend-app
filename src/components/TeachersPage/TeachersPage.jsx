@@ -50,13 +50,16 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
         ]);
     }
     setEditAssignments(null); //reset form after saving
-    setShowForm(false);
+    setShowForm(false);      //after saving assignment form closes
    }   
     const handleReply = (e) => {  //reply to parents
         e.preventDefault();
         setReplySent(true);  //shows reply sent message
-        setReplyText("");   //clears reply input
-        setTimeout(() => {setReplySent(false); setReplyId(null); }, 2000); //hides success msg after 2 seconds
+        setReplyText("");   //clears reply text after reply is submitted
+        setTimeout(() => {
+            setReplySent(false); 
+            setReplyId(null); 
+        }, 2000); //hides success msg after 2 seconds
     }
     return (      
     <div className="home">  
@@ -170,7 +173,8 @@ function TeachersPage ( { handleDelete, assignments, setAssignments, setUser } )
                                 Reply
                                 </button>
                             </div>
-                            {replyId === p.id && (  //conditional rendering interactive feature-display reply section
+                            {replyId === p.id && (  //conditional rendering interactive feature-display reply section/ 
+                                                    //only show reply box for selected parent
                                 replySent? (
                                     <p className="reply-sent">✅ Reply Sent</p>
                                 ) : (

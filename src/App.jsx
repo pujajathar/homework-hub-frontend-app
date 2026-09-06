@@ -17,12 +17,11 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [loginRole, setLoginRole] = useState("");
   const [assignments, setAssignments] = useState(mockAssignments);
   const [completedAssignments, setCompletedAssignments] = useState([]);
-  const ProtectedRoute = ({allowedRole, children}) => {
+  const ProtectedRoute = ({allowedRole, children}) => {  //checks whether the user is allowed to access page
     if(!user || user.role !== allowedRole) {
-      return ( <Login 
+      return ( <Login       
         role={allowedRole}
         setUser={setUser}
         />
@@ -39,8 +38,8 @@ function App() {
     });
   };
   const handleDelete = (id) => {    /* deletes assignment */ 
-    setAssignments((prev) => prev.filter((assignment) => assignment.id !== id));
-    };
+    setAssignments((prev) => prev.filter((assignment) => assignment.id !== id)); //creates new array with every assignment except whose id matches 
+    };                                                                           //with id passed in and remove that assignment 
 
  return (
   <div className='app'>

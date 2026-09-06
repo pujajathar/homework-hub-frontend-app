@@ -25,11 +25,11 @@ function ParentsPage ({ assignments, toggleComplete, completedAssignments, setUs
     const handleChange = (e) => {  //updates form fields as user types
          
     const {name, value} = e.target; //extracts input's name and value
-        setSubmitted(false);  //message disappears after user starts typing
-        setData((prevData)  =>  //updates only the changed field
+        setSubmitted(false);        //message disappears after user starts typing
+        setData((prevData)  =>      //previous form state
         ({   
-            ...prevData,
-            [name]:value
+            ...prevData,          //copies all existing fields
+            [name]:value          //updates only the changed field
         }))
     };
     useEffect(() => {   //success message disappears after set time

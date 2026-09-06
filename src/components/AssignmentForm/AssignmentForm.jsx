@@ -6,16 +6,16 @@ import "./AssignmentForm.css";
 function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handleDelete}) { //assignment propery passing from teachers page
 
     const [assignment, setAssignment] = useState({
-            subject: editAssignment?.subject || "",
-            title: editAssignment?.title || "",
+            subject: editAssignment?.subject || "", // ?. is optional chaining, it prevent error if editAssignment doesn't exists
+            title: editAssignment?.title || "",    // means use the existing subject if an assignment is being edited, otherwise use an empty string ""
             dueDate: editAssignment?.dueDate || "",
             status: editAssignment?.status || ""
     });
-    const isEditing = Boolean(editAssignment);
-    useEffect (() => {      //fills the form when click edit
-        if (editAssignment) {
+    const isEditing = Boolean(editAssignment); //checks if assignment is being edited
+    useEffect (() => {      
+        if (editAssignment) {  // if user clicks edit on existing assignment then form is filled with it's data
             setAssignment(editAssignment);
-        } else {
+        } else {   //if not clears the form and this reset the form for creating new assignment
             setAssignment({
                 subject:"",
                 title: "",
@@ -23,9 +23,9 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handle
                 status:""
             });
         }
-    }, [editAssignment]);
+    }, [editAssignment]);  //useEffect runs when editAssignment changes
     
-    const handleChange = (e) => {
+    const handleChange = (e) => {    //updates assignment form when user types
             const {name, value} = e.target;
             setAssignment({
                 ...assignment,
@@ -37,9 +37,9 @@ function AssignmentForm ({onSubmit, assignment: editAssignment, onCancel, handle
        
          const updateAssignment = {
         ...assignment,
-        id: editAssignment? editAssignment.id: Date.now()
+        id: editAssignment? editAssignment.id: Date.now() //if editAssignment exists then use it's existing id otherwise create new id using Date.now()
     };
-    onSubmit(updateAssignment);
+    onSubmit(updateAssignment);  //sends completed form data back to TeacherPage(parent component)
   
         setAssignment({
             subject:"",

@@ -3,7 +3,7 @@ import './AssignmentList.css';
 function AssignmentList ({
     assignments, 
     toggleComplete, 
-    completedAssignments = [],
+    completedAssignments = [],  //receives an array containing completed assignment id's.
     showCheckbox=true,
     showActions=false,
     onEdit,
@@ -14,17 +14,17 @@ function AssignmentList ({
         <div className="assignment-list">
                             {/*display assignment*/ }
             {assignments.map((assignment) => (
-                <div key={assignment.id} className="assignment-row">
+                <div key={assignment.id} className="assignment-row"> {/* creates one row for each assignment */}
                     <div className="assignment-left"> {/*left side */}
-                        {toggleComplete && (
+                        {toggleComplete && (  //only show this button if togglecomplete exists
                         <button 
                             className="check-btn"
                             onClick={() => toggleComplete(assignment.id)}>
-                            {completedAssignments.includes(assignment.id) ? "✅":"⬜"}
+                            {completedAssignments.includes(assignment.id) ? "✅":"⬜"} {/*if assignment id exists show checkbox otherwise show empty box */}
                         </button>
                         )}
                     <div>
-                        <h3 className={completedAssignments.includes(assignment.id) ? "completed" : ''}>
+                        <h3 className={completedAssignments.includes(assignment.id) ? "completed" : ''}> {/* adds CSS class conditionaly used for text decoration line through */}
                             {assignment.title}
                         </h3>
                         <p className="due">
@@ -36,7 +36,7 @@ function AssignmentList ({
                             <span className={`tag ${assignment.subject.toLowerCase()}`}>
                                 {assignment.subject}
                             </span>
-                        {showActions && (
+                        {showActions && ( //only display buttons if showActions is true
                             <div className='buttonspace'>
                             <button className='edit-btn'
                             onClick={() => onEdit(assignment.id)}>
